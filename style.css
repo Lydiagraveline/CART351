@@ -1,12 +1,17 @@
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
   padding: 0;
   margin: 0;
+  /* border: 3px solid green; */
 }
 
 header {
   /* border: 3px solid red; */
+}
+
+h3{
+  /* padding-left: 25px; */
 }
 .center {
   display: flex;
@@ -18,4 +23,13 @@ header {
 .nav {
   width: auto;
   /* border: 3px solid blue; */
+}
+
+footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  /* height:60px; */
+  background:#000;
+  color: #FFF
 }
