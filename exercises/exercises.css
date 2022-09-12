@@ -1,0 +1,33 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+div {
+  width: 50%;
+  height: 50%;
+  float: left;
+
+  /* center the content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#div1 {
+  /* background: something eventually */
+}
+#div2 {
+  /* background: something eventually */
+}
+#div3 {
+  /* background: something eventually */
+}
+#div4 {
+  /* background: something eventually */
+}
+
+footer {
+  text-align: center;
+}
