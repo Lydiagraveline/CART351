@@ -20,7 +20,9 @@
       <span id="box2-checked" style="display:none; color:blue;">still learning.</span>
       <span id="box2-unchecked" style="display:inline;"></span>
     <br/> -->
-      <input type="checkbox" id="happy-box" onclick="updateImage(this)" checked/> <span> happy to be here </span> </br>
+
+      <input type="checkbox" onclick="updateNav(this)" /> just for fun <input type="checkbox" onclick="return false;"/> for good reason </br>
+      <input type="checkbox" id="happy-box" onclick="updateImage(this)"/> <span> happy to be here </span> </br>
       <input type="checkbox" onclick="return false;"checked/> <span> still learning </span> </br>
 
       <!-- <h3> &#183; : &starf; &star; &#9825; &star; &starf; : &sstarf; &#183; </h3> -->
@@ -30,7 +32,7 @@
 
 
       <div class="center">
-      <img id="img" src="images/thankyou.png" alt="thank you" style="display: inline; position:absolute; width: 20%; z-index: -1; padding: 50px;">
+      <img id="img" src="images/thankyou.png" alt="thank you" style="display:none; position:absolute; width:20%; z-index:-1; padding:50px;">
       <!-- Navigation -->
       <div class="nav"> everything is here
         <select id="menu" onChange="location = this.options[this.selectedIndex].value;">
@@ -40,6 +42,7 @@
           <option value="project/project.html">project </option>
           <option value="reflect.html">reflect</option>
           <option value="present.html">present</option>
+          <option id="fun" value="fun.html" style="display:none;">fun!</option>
         </select>
         <p id="demo"></p>
       </div>
@@ -48,7 +51,7 @@
     </main>
     <!-- the footer div -->
     <footer>
-      <p> lydia </p>
+      <!-- <p> lydia </p> -->
     </footer>
   </body>
 </html>

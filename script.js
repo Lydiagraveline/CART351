@@ -5,7 +5,7 @@
 // December 20, 2014
 function ChangeLabel(ckbx)
 {
-   var d = ckbx.id;
+   let d = ckbx.id;
    if( ckbx.checked )
    {
       document.getElementById(d+"-checked").style.display = "inline";
@@ -18,11 +18,20 @@ function ChangeLabel(ckbx)
    }
 }
 
-function updateImage(ckbx){
-  let d = ckbx.id;
-  let image = document.getElementById("img")
+// Display secret "fun" tab in the navigation when the checkbox is checked
+function updateNav(ckbx){
+  if(ckbx.checked){
+    document.getElementById("fun").style.display = "inline";
+  } else {
+    document.getElementById("fun").style.display = "none";
+  }
+}
 
-  if( ckbx.checked ){
+// Display an image when the checkbox is checked
+function updateImage(ckbx){
+  let image = document.getElementById("img");
+
+  if(ckbx.checked ){
     image.style.display = "inline";
   }
   else {
