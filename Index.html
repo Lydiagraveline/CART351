@@ -20,13 +20,18 @@
       <span id="box2-checked" style="display:none; color:blue;">still learning.</span>
       <span id="box2-unchecked" style="display:inline;"></span>
     <br/> -->
-      <input type="checkbox" onclick="return false;"checked/> <span> still learning </span>
+      <input type="checkbox" id="happy-box" onclick="updateImage(this)" checked/> <span> happy to be here </span> </br>
+      <input type="checkbox" onclick="return false;"checked/> <span> still learning </span> </br>
+
       <!-- <h3> &#183; : &starf; &star; &#9825; &star; &starf; : &sstarf; &#183; </h3> -->
     </header>
     <!-- the main div -->
     <main>
-      <!-- Navigation -->
+
+
       <div class="center">
+      <img id="img" src="images/thankyou.png" alt="thank you" style="display: inline; position:absolute; width: 20%; z-index: -1; padding: 50px;">
+      <!-- Navigation -->
       <div class="nav"> everything is here
         <select id="menu" onChange="location = this.options[this.selectedIndex].value;">
           <!-- onChange js attribute for <select> from http://www.faqs.org/docs/htmltut/forms/_SELECT_onChange.html :) -->
@@ -39,6 +44,7 @@
         <p id="demo"></p>
       </div>
     </div>
+
     </main>
     <!-- the footer div -->
     <footer>

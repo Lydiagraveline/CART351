@@ -17,3 +17,15 @@ function ChangeLabel(ckbx)
       document.getElementById(d+"-unchecked").style.display = "inline";
    }
 }
+
+function updateImage(ckbx){
+  let d = ckbx.id;
+  let image = document.getElementById("img")
+
+  if( ckbx.checked ){
+    image.style.display = "inline";
+  }
+  else {
+    image.style.display = "none";
+  }
+}
