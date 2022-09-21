@@ -1,3 +1,5 @@
+let state = "options" //can be options or mealtime
+
 //empty array
 let swarm = [];
 const NUM_BUGS = 3; //new make a constant
@@ -7,7 +9,7 @@ window.onload = function () {
   let canvas = document.getElementById("canvas");
   // full screen canvas
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight - 100; //leave room for footer
   //get the context
   let context = canvas.getContext("2d");
 
@@ -30,7 +32,7 @@ window.onload = function () {
   // window resize event
   window.addEventListener("resize", function (event) {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 100; //leave room for footer
     //invoke again - in order to update the triangle!!!
     bug.display();
     bug.setPoints(canvas.width / 2, canvas.height / 2);
@@ -50,4 +52,12 @@ window.onload = function () {
     }
     requestAnimationFrame(animate);
   } //end animation
+
+
 }; //end load
+
+function changeBackground() {
+  let img = document.getElementById("menu");
+  let value = img.options[img.selectedIndex].value;
+  document.body.style.backgroundImage = ("url(" + value + ")")
+}
