@@ -6,9 +6,9 @@ class Bug {
     this.strokeColor = "#FFFFFF";
     this.size = 50;
 
-    //speed
-    this.speedX = 2;
-    this.speedY = 4;
+    //randomize speed
+    this.speedX  =(Math.random()*5);
+    this.speedY  =(Math.random()*5);;
     this.setPoints(x, y);
   }
   //method to display the triangle using the HTML 5 canvas API

@@ -1,19 +1,33 @@
+//empty array
+let swarm = [];
+const NUM_BUGS = 3; //new make a constant
+
 window.onload = function () {
   // get the canvas
   let canvas = document.getElementById("canvas");
-  //a
+  // full screen canvas
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   //get the context
   let context = canvas.getContext("2d");
-  let bug = new Bug(
-    canvas.width / 2,
-    canvas.height / 2,
-    100,
-    context
-  );
-  bug.display();
 
+  //ANYTHING OUTSIDE of animate function and not within another event handler WILL run only ONCE...
+  //OnLOAD...
+  for (let i = 0; i < 50; i++) {
+    swarm.push(
+      new Bug(i, Math.random() * canvas.height, Math.random() * 30 + 5, context)
+    );
+  }
+  //bug object
+  // let bug = new Bug(
+  //   canvas.width / 2,
+  //   canvas.height / 2,
+  //   100,
+  //   context
+  // );
+  // bug.display();
+
+  // window resize event
   window.addEventListener("resize", function (event) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -22,14 +36,18 @@ window.onload = function () {
     bug.setPoints(canvas.width / 2, canvas.height / 2);
   });
 
+  // animate the bugs
   requestAnimationFrame(animate);
 
   function animate() {
     //repaint with a black rect..
     context.clearRect(0, 0, canvas.width, canvas.height);
-    bug.update();
-    bug.checkBounds(canvas);
-    bug.display();
+
+    for (let i = 0; i < NUM_BUGS; i++) {
+      swarm[i].update();
+      swarm[i].checkBounds(canvas);
+      swarm[i].display();
+    }
     requestAnimationFrame(animate);
-  }
-};
+  } //end animation
+}; //end load
