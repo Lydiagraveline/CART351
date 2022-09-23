@@ -22,6 +22,19 @@
         background:#000;
         color: #FFF
       }
+
+      #top
+{
+  /* display:flex; */
+  display: none;
+  justify-content: space-around;
+  background:#e6b3ff;
+  position:relative;
+  left:10%;
+  width:80%;
+  margin-top:5vh;
+  height:8vh;
+}
     </style>
     <script src="js/bug.js"></script>
     <script src="js/exercise_1.js"></script>
@@ -29,6 +42,11 @@
   <body>
     <div class="wrapper">
       <!-- <input type="file" multiple id="background" accept="image/png, image/jpeg" onchange="changeBackground()"  /> -->
+
+      <header id = "top">
+      <p id = "messageA"></p>
+      <p id = "messageB"></p>
+    </header>
 
         Whats for lunch?
         <select id="menu" onChange="changeBackground()">

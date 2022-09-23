@@ -7,14 +7,15 @@ class Bug {
     this.size = 50;
 
     //randomize speed
-    this.speedX  =(Math.random()*5);
-    this.speedY  =(Math.random()*5);;
+    this.speedX  =(Math.random()*2);
+    this.speedY  =(Math.random()*2);;
     this.setPoints(x, y);
   }
   //method to display the triangle using the HTML 5 canvas API
   display() {
     this.localCanvasContext.fillStyle = this.fillColor;
     this.localCanvasContext.fillRect(this.x1, this.y1, this.size, this.size);
+
   }
   //method to update the points ...
   setPoints(x, y) {
@@ -27,7 +28,7 @@ class Bug {
     let newX = this.x1 + this.speedX;
     let newY = this.y1 + this.speedY;
     //set the points
-    this.setPoints(newX, newY);
+   this.setPoints(newX, newY);
   }
 
   checkBounds(localCanvas) {
@@ -39,5 +40,23 @@ class Bug {
       this.speedY = this.speedY * -1;
     }
   }
+
+  checkMouseCollision(eX, eY){
+    if (eX>this.x1 && eX<this.x1 + this.size){
+      if(eY > this.y1 && eY<this.y1 + this.size){
+       //console.log("colliding");
+       //this.setPoints(eX,eY);
+       this.fillColor = "red"
+      }
+      //no y match
+      else{this.fillColor = "#8ED6FF";}
+    }
+    //no x match
+    else{this.fillColor = "#8ED6FF";}
+  }//check
+
+  onEnter () {
+    console.log('The mouse entered');
+};
 }
 /** end class def **/
