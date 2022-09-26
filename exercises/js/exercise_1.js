@@ -3,6 +3,9 @@ let state = "options"; //can be options or mealtime
 //empty array
 let swarm = [];
 const NUM_BUGS = 3; //new make a constant
+const bugImg = new Image();
+bugImg.src = "images/fly-sprite.png";
+let frameCount = 0;
 
 window.onload = function () {
   // get the canvas
@@ -18,7 +21,6 @@ window.onload = function () {
   //
   // /* our call back when the mouse moves within the canvas */
   function canvasIsActive(event) {
-
     // calculate the offset
     let pBox = this.getBoundingClientRect();
     // the one we use ...diff
@@ -27,7 +29,6 @@ window.onload = function () {
 
     for (let i = 0; i < NUM_BUGS; i++) {
       swarm[i].checkMouseCollision(mouse_offset_x, mouse_offset_y);
-
     }
   }
 
@@ -35,7 +36,11 @@ window.onload = function () {
   //OnLOAD...
   for (let i = 0; i < 50; i++) {
     swarm.push(
-      new Bug(Math.random() * canvas.width, Math.random() * canvas.height, context)
+      new Bug(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        context
+      )
     );
   }
 
@@ -52,10 +57,19 @@ window.onload = function () {
   // animate the bugs
   requestAnimationFrame(animate);
 
+
   function animate() {
-    //repaint with a black rect..
+    //slow down animation frame rate
+    frameCount++;
+    if (frameCount < 5) {
+      requestAnimationFrame(animate);
+      return;
+    }
+    frameCount = 0;
+    //clear canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
 
+    //animate the bugs
     for (let i = 0; i < NUM_BUGS; i++) {
       swarm[i].update();
       swarm[i].checkBounds(canvas);
@@ -65,15 +79,17 @@ window.onload = function () {
   } //end animation
 }; //end load
 
+
+
 //change background image menu
 function changeBackground() {
   let img = document.getElementById("menu");
   let value = img.options[img.selectedIndex].value;
   document.body.style.backgroundImage = "url(" + value + ")";
 
-  let id = img.options[img.selectedIndex].getAttribute('id');
-  console.log(id)
-  if (id == "scale"){
+  let id = img.options[img.selectedIndex].getAttribute("id");
+  console.log(id);
+  if (id == "scale") {
     document.body.style.backgroundSize = "700px";
   } else {
     document.body.style.backgroundSize = "auto";
