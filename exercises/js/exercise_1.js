@@ -70,4 +70,14 @@ function changeBackground() {
   let img = document.getElementById("menu");
   let value = img.options[img.selectedIndex].value;
   document.body.style.backgroundImage = "url(" + value + ")";
+
+  let id = img.options[img.selectedIndex].getAttribute('id');
+  console.log(id)
+  if (id == "scale"){
+    document.body.style.backgroundSize = "700px";
+  } else {
+    document.body.style.backgroundSize = "auto";
+  }
+  //scaledImg.style.width = "700px"
+  //document.body.style.backgroundSize = "700px";
 }
