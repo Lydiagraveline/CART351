@@ -18,10 +18,6 @@ window.onload = function () {
   //
   // /* our call back when the mouse moves within the canvas */
   function canvasIsActive(event) {
-    document.getElementById(
-      "messageA"
-    ).innerHTML = `original mouse x: <span class = "high">${event.clientX}</span>
-  and original mouse y: <span class = "high">${event.clientY}</span>`;
 
     // calculate the offset
     let pBox = this.getBoundingClientRect();
@@ -29,13 +25,9 @@ window.onload = function () {
     let mouse_offset_x = Math.floor(event.clientX - pBox.x);
     let mouse_offset_y = Math.floor(event.clientY - pBox.y);
 
-    //append
-    document.getElementById(
-      "messageB"
-    ).innerHTML = ` offset mouse x: <span class = "high">${mouse_offset_x}</span>
-and offset mouse y: <span class = "high">${mouse_offset_y}</span>`;
     for (let i = 0; i < NUM_BUGS; i++) {
       swarm[i].checkMouseCollision(mouse_offset_x, mouse_offset_y);
+
     }
   }
 
@@ -43,7 +35,7 @@ and offset mouse y: <span class = "high">${mouse_offset_y}</span>`;
   //OnLOAD...
   for (let i = 0; i < 50; i++) {
     swarm.push(
-      new Bug(i, Math.random() * canvas.height, Math.random() * 30 + 5, context)
+      new Bug(Math.random() * canvas.width, Math.random() * canvas.height, context)
     );
   }
 
