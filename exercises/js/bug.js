@@ -4,23 +4,20 @@ class Bug {
       alive: true,
       dead: false,
       move: true,
+      squish: false
     };
 
     //this.lineLength = lineLength;
     this.localCanvasContext = context;
     this.deg = 0;
-    this.size = 50;
+    this.size = 20;
 
     //randomize speed
     this.speedX = 2;
     this.speedY = 4;
     this.setPoints(x, y);
 
-    this.scale = 0.5;
-    this.width = 80; //16;
-    this.height = 86.25; //18;
-    this.scaledWidth = scale * this.width;
-    this.scaledHeight = scale * this.height;
+    this.scale = 0.3;
 
     // sprite frames
     this.currentLoopIndex = 0;
@@ -28,15 +25,14 @@ class Bug {
     this.row = 0;
   }
 
-  drawFrame(frameX, frameY, x, y) {
-  //  bugImg.style.transform = "rotate(90deg)";
-    let scale = 0.5;
+  drawFrame(img, frameX, frameY, x, y) {
+    let scale = 0.3;
     let width = 80;
     let height = 86.25;
-    let scaledWidth = scale * this.width;
-    let scaledHeight = scale * this.height;
+    let scaledWidth = scale * width;
+    let scaledHeight = scale * height;
     this.localCanvasContext.drawImage(
-      bugImg,
+      img,
       frameX * width,
       frameY * height,
       width,
@@ -55,24 +51,28 @@ class Bug {
     //this.localCanvasContext.fillStyle = "red";
     this.localCanvasContext.fillRect(this.x1, this.y1, this.size, this.size);
 
-    if (this.state.alive) {
-      //this.cycleLoop = [0, 1, 2, 3, 4];
-      this.row = 0;
-    } else if (this.state.dead) {
-      this.row = 3;
-    }
+    if (this.state.squish) {
+      this.localCanvasContext.drawImage(
+        squishImg,
+        this.x1 - 10, //offset the squished image a bit
+        this.y1 - 10,
+        50,
+        50
+      );
+    } else {
+      this.drawFrame(
+        bugImg,
+        this.cycleLoop[this.currentLoopIndex],
+        this.row,
+        this.x1,
+        this.y1
+      );
+      if (this.state.move) {
+        this.currentLoopIndex++;
 
-    this.drawFrame(
-      this.cycleLoop[this.currentLoopIndex],
-      this.row,
-      this.x1,
-      this.y1
-    );
-    if (this.state.move) {
-      this.currentLoopIndex++;
-
-      if (this.currentLoopIndex >= this.cycleLoop.length) {
-        this.currentLoopIndex = 0;
+        if (this.currentLoopIndex >= this.cycleLoop.length) {
+          this.currentLoopIndex = 0;
+        }
       }
     }
   }
@@ -118,32 +118,45 @@ class Bug {
   }
 
   // drop dead
-  drop(currentY) {
-    this.state.dead = true;
-    this.state.alive = false;
+  drop() {
+    this.row = 3;
     this.speedY = 6;
   }
 
-  //mouse over
+  splat() {
+    this.state.squish = true;
+    this.speedY = 0;
+    this.row = Math.floor(Math.random(3) * 2);
+    console.log(this.row);
+    this.state.move = false;
+  }
+
+  //kill the bug
+  die() {
+    this.state.dead = true;
+    this.state.alive = false;
+    //console.log(this.state);
+    let randNum = Math.floor(Math.random(1) * 2);
+
+    if (randNum == 0) {
+      this.drop();
+    } else if (randNum == 1) {
+      this.splat();
+    }
+  }
+
+  //mouse pressed
   checkMousePressed(eX, eY) {
     if (eX > this.x1 && eX < this.x1 + this.size) {
       if (eY > this.y1 && eY < this.y1 + this.size) {
-        //change direction
-        //this.speedX = -this.speedX;
-        console.log(this.state);
-        this.drop(this.y1);
+        if (this.state.alive) {
+          this.die();
+        } else if (this.state.dead && !this.state.squish){
+          this.splat();
+        }
       }
     }
   } //check
 
-  //mouse over
-  checkMouseCollision(eX, eY) {
-    if (eX > this.x1 && eX < this.x1 + this.size) {
-      if (eY > this.y1 && eY < this.y1 + this.size) {
-        //fly away
-        //this.speedX = -this.speedX;
-      }
-    }
-  } //check
 }
 /** end class def **/

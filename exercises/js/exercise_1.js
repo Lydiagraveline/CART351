@@ -4,7 +4,9 @@ let state = "options"; //can be options or mealtime
 let swarm = [];
 let NUM_BUGS = 3; //new make a constant
 const bugImg = new Image();
+const squishImg = new Image();
 bugImg.src = "images/fly-sprite.png";
+squishImg.src = "images/squish.png";
 let frameCount = 0;
 
 window.onload = function () {
@@ -17,22 +19,7 @@ window.onload = function () {
   let context = canvas.getContext("2d");
 
   //add a mouseListener to canvas
-  canvas.addEventListener("mousemove", canvasIsActive);
   canvas.addEventListener("mousedown", mousePressed);
-  //
-  // /* our call back when the mouse moves within the canvas */
-  function canvasIsActive(event) {
-    // calculate the offset
-    let pBox = this.getBoundingClientRect();
-    // the one we use ...diff
-    let mouse_offset_x = Math.floor(event.clientX - pBox.x);
-    let mouse_offset_y = Math.floor(event.clientY - pBox.y);
-
-    for (let i = 0; i < NUM_BUGS; i++) {
-      swarm[i].checkMouseCollision(mouse_offset_x, mouse_offset_y);
-    }
-  }
-
   function mousePressed(event) {
     // calculate the offset
     let pBox = this.getBoundingClientRect();
@@ -70,7 +57,6 @@ window.onload = function () {
   // animate the bugs
   requestAnimationFrame(animate);
 
-
   function animate() {
     //slow down animation frame rate
     frameCount++;
@@ -92,8 +78,6 @@ window.onload = function () {
   } //end animation
 }; //end load
 
-
-
 //change background image menu
 function changeBackground() {
   let img = document.getElementById("menu");
@@ -108,12 +92,7 @@ function changeBackground() {
     document.body.style.backgroundSize = "auto";
   }
   //add a new bug every time the user changes the background
-    let canvas = document.getElementById("canvas");
-      let context = canvas.getContext("2d");
-    // let bug = new Bug( Math.random() * canvas.width, Math.random() * canvas.height, context)
-    // swarm.push(bug);
-    // console.log(swarm)
-    NUM_BUGS += 1
-
-
+  let canvas = document.getElementById("canvas");
+  let context = canvas.getContext("2d");
+  NUM_BUGS += 1;
 }
