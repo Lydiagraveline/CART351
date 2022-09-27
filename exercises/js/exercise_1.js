@@ -18,6 +18,7 @@ window.onload = function () {
 
   //add a mouseListener to canvas
   canvas.addEventListener("mousemove", canvasIsActive);
+  canvas.addEventListener("mousedown", mousePressed);
   //
   // /* our call back when the mouse moves within the canvas */
   function canvasIsActive(event) {
@@ -32,13 +33,25 @@ window.onload = function () {
     }
   }
 
+  function mousePressed(event) {
+    // calculate the offset
+    let pBox = this.getBoundingClientRect();
+    // the one we use ...diff
+    let mouse_offset_x = Math.floor(event.clientX - pBox.x);
+    let mouse_offset_y = Math.floor(event.clientY - pBox.y);
+
+    for (let i = 0; i < NUM_BUGS; i++) {
+      swarm[i].checkMousePressed(mouse_offset_x, mouse_offset_y);
+    }
+  }
+
   //ANYTHING OUTSIDE of animate function and not within another event handler WILL run only ONCE...
   //OnLOAD...
   for (let i = 0; i < 50; i++) {
     swarm.push(
       new Bug(
-        Math.random() * canvas.width,
-        Math.random() * canvas.height,
+        Math.random() * canvas.width, //x
+        Math.random() * canvas.height, //y
         context
       )
     );

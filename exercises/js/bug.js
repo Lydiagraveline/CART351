@@ -1,76 +1,80 @@
 class Bug {
   constructor(x, y, context) {
+    this.state = {
+      alive: true,
+      dead: false,
+      move: true,
+    };
+
     //this.lineLength = lineLength;
     this.localCanvasContext = context;
+    this.deg = 0;
     this.size = 50;
 
     //randomize speed
     this.speedX = 2;
     this.speedY = 4;
     this.setPoints(x, y);
-    //this.animateSprite();
 
     this.scale = 0.5;
-    this.width = 80//16;
-    this.height = 86.25//18;
+    this.width = 80; //16;
+    this.height = 86.25; //18;
     this.scaledWidth = scale * this.width;
     this.scaledHeight = scale * this.height;
 
     // sprite frames
     this.currentLoopIndex = 0;
     this.cycleLoop = [0, 1, 2, 3, 4];
-    this.frameCount = 0;
+    this.row = 0;
   }
 
-
   drawFrame(frameX, frameY, x, y) {
-  let scale = 0.5;
-  let width = 80;
-  let height = 86.25;
-  let scaledWidth = scale * this.width;
-  let scaledHeight = scale * this.height;
-  this.localCanvasContext.drawImage(bugImg,
-                frameX * width, frameY * height, width, height,
-                x, y, scaledWidth, scaledHeight);
-}
+  //  bugImg.style.transform = "rotate(90deg)";
+    let scale = 0.5;
+    let width = 80;
+    let height = 86.25;
+    let scaledWidth = scale * this.width;
+    let scaledHeight = scale * this.height;
+    this.localCanvasContext.drawImage(
+      bugImg,
+      frameX * width,
+      frameY * height,
+      width,
+      height,
+      x,
+      y,
+      scaledWidth,
+      scaledHeight
+    );
+  }
 
   //method to display the triangle using the HTML 5 canvas API
-  display(frameCount) {
+  display() {
     //transparent background
-    this.localCanvasContext.fillStyle = 'rgba(0, 0, 0, 0)';
-  //  this.localCanvasContext.fillStyle = 'red';
+    this.localCanvasContext.fillStyle = "rgba(0, 0, 0, 0)";
+    //this.localCanvasContext.fillStyle = "red";
     this.localCanvasContext.fillRect(this.x1, this.y1, this.size, this.size);
 
-    // loop through the sprite frames
-  //   this.frameCount++;
-  //   if (this.frameCount > 15) {
-  //
-  //   //window.requestAnimationFrame(this.display);
-  //   return;
-  // }
-  //   this.frameCount = 0;
-    //this.localCanvasContext.clearRect(0, 0, canvas.width, canvas.height);
-    this.drawFrame(this.cycleLoop[this.currentLoopIndex], 0, this.x1, this.y1);
-    this.currentLoopIndex++;
-    //console.log(this.currentLoopIndex)
-    if (this.currentLoopIndex >= this.cycleLoop.length) {
-      this.currentLoopIndex = 0;
+    if (this.state.alive) {
+      //this.cycleLoop = [0, 1, 2, 3, 4];
+      this.row = 0;
+    } else if (this.state.dead) {
+      this.row = 3;
     }
-    // this.localCanvasContext.drawImage(bugImg, 0, 0, width, height, this.x1, this.y1, scaledWidth, scaledHeight);
-    // this.localCanvasContext.drawImage(bugImg, width, 0, width, 87, this.x1 + scaledWidth, this.y1, scaledWidth, scaledHeight);
-    // this.localCanvasContext.drawImage(bugImg, width * 2, 0, width, 87, this.x1 + scaledWidth * 2, this.y1, scaledWidth, scaledHeight);
-    // this.localCanvasContext.drawImage(bugImg, width * 3, 0, width, 87, this.x1 + scaledWidth * 3, this.y1, scaledWidth, scaledHeight);
-    // this.localCanvasContext.drawImage(bugImg, width * 4, 0, width, 87, this.x1 + scaledWidth * 3, this.y1, scaledWidth, scaledHeight);
 
-    //this.drawFrame(0, 0, this.x1, this.y1);
-    //this.drawFrame(1, 0, this.x1 + 50, this.y1);
-    //requestAnimationFrame(() => { this.step() } );
+    this.drawFrame(
+      this.cycleLoop[this.currentLoopIndex],
+      this.row,
+      this.x1,
+      this.y1
+    );
+    if (this.state.move) {
+      this.currentLoopIndex++;
 
-    //this.localCanvasContext.drawImage(bugImg, 0, 0, width, height, 0, 0, scaledWidth, scaledHeight);
-    //this.localCanvasContext.drawImage(bugImg, width, 0, width, height, scaledWidth, 0, scaledWidth, scaledHeight);
-  //  this.localCanvasContext.drawImage(bugImg, width * 2, 0, width, height, scaledWidth * 2, 0, scaledWidth, scaledHeight);
-//this.localCanvasContext.requestAnimationFrame(this.display);
-  //setTimeout(this.display, 0);
+      if (this.currentLoopIndex >= this.cycleLoop.length) {
+        this.currentLoopIndex = 0;
+      }
+    }
   }
 
   //method to update the points ...
@@ -80,9 +84,18 @@ class Bug {
   }
 
   update() {
-    let newX = this.x1 + this.speedX;
-    let newY = this.y1 + this.speedY;
-
+    let newX;
+    let newY;
+    //move around if alive
+    if (this.state.alive) {
+      newX = this.x1 + this.speedX;
+      newY = this.y1 + this.speedY;
+      //fall if dead
+    } else if (this.state.dead) {
+      newX = this.x1;
+      newY = this.y1 + this.speedY;
+      //this.localCanvasContext.rotate(90);
+    }
     this.setPoints(newX, newY);
   }
 
@@ -95,25 +108,42 @@ class Bug {
     if (this.y1 + this.size > localCanvas.height || this.y1 < 0) {
       this.speedY = this.speedY * -1;
     }
+    // if dead, stop moving when they reach the bottom
+    if (this.state.dead && this.y1 + this.size > localCanvas.height) {
+      this.speedY = 0;
+      //this.cycleLoop = 0;
+      this.state.move = false;
+      //console.log(this.state.move)
+    }
   }
+
+  // drop dead
+  drop(currentY) {
+    this.state.dead = true;
+    this.state.alive = false;
+    this.speedY = 6;
+  }
+
+  //mouse over
+  checkMousePressed(eX, eY) {
+    if (eX > this.x1 && eX < this.x1 + this.size) {
+      if (eY > this.y1 && eY < this.y1 + this.size) {
+        //change direction
+        //this.speedX = -this.speedX;
+        console.log(this.state);
+        this.drop(this.y1);
+      }
+    }
+  } //check
 
   //mouse over
   checkMouseCollision(eX, eY) {
     if (eX > this.x1 && eX < this.x1 + this.size) {
       if (eY > this.y1 && eY < this.y1 + this.size) {
-        //change direction
-        this.speedX = -this.speedX;
+        //fly away
+        //this.speedX = -this.speedX;
       }
-      //no y match
-      else {
-        this.fillColor = "#8ED6FF";
-      }
-    }
-    //no x match
-    else {
-      this.fillColor = "#8ED6FF";
     }
   } //check
-
 }
 /** end class def **/
