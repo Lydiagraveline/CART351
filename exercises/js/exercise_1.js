@@ -2,7 +2,7 @@ let state = "options"; //can be options or mealtime
 
 //empty array
 let swarm = [];
-const NUM_BUGS = 3; //new make a constant
+let NUM_BUGS = 3; //new make a constant
 const bugImg = new Image();
 bugImg.src = "images/fly-sprite.png";
 let frameCount = 0;
@@ -101,12 +101,19 @@ function changeBackground() {
   document.body.style.backgroundImage = "url(" + value + ")";
 
   let id = img.options[img.selectedIndex].getAttribute("id");
-  console.log(id);
+  //console.log(id);
   if (id == "scale") {
     document.body.style.backgroundSize = "700px";
   } else {
     document.body.style.backgroundSize = "auto";
   }
-  //scaledImg.style.width = "700px"
-  //document.body.style.backgroundSize = "700px";
+  //add a new bug every time the user changes the background
+    let canvas = document.getElementById("canvas");
+      let context = canvas.getContext("2d");
+    // let bug = new Bug( Math.random() * canvas.width, Math.random() * canvas.height, context)
+    // swarm.push(bug);
+    // console.log(swarm)
+    NUM_BUGS += 1
+
+
 }
