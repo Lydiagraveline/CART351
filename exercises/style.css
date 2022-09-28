@@ -9,14 +9,15 @@ div {
   width: 50%;
   height: 50%;
   float: left;
-
   /* center the content */
   display: flex;
+  flex-flow: wrap;
   justify-content: center;
   align-items: center;
 }
+
 #div1 {
-  /* background: something eventually */
+  background-image: url("images/salad.jpeg")
 }
 #div2 {
   /* background: something eventually */
