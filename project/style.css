@@ -1,3 +1,6 @@
+/* Code and design adapted from W3.CSS demo */
+/* https://www.w3schools.com/w3css/w3css_templates.asp */
+
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
 
