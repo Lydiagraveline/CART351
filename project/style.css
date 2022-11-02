@@ -4,7 +4,7 @@
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
 
-.w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.w3-row:after,.w3-row:before,.w3-row-padding:after,.w3-row-padding:before,
+.w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.row:after,.row:before,.w3-row-padding:after,.w3-row-padding:before,
 .w3-cell-row:before,.w3-cell-row:after,.w3-clear:after,.w3-clear:before,.w3-bar:before,.w3-bar:after{content:"";display:table;clear:both}
 html, body {
     /* font-family: Verdana,sans-serif; */
@@ -90,6 +90,7 @@ p{
 .image {
     max-width: 100%;
     height: auto;
+    padding: 10px
 }
 
 .imageSmall {
@@ -109,10 +110,6 @@ p{
     color: white;
 }
 
-.w3-padding-64 {
-    padding-top: 64px!important;
-    padding-bottom: 64px!important;
-}
 
 .w3-padding-large {
     padding: 12px 24px!important;
@@ -121,7 +118,27 @@ p{
 .w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
     float: left;
     width: 100%;
+    border-style: solid;
+    border-color: red;
 }
+
+.row{
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-style: solid;
+  border-color: red;
+}
+
+#sticky{
+  position: sticky;
+  position: -webkit-sticky;
+  background: #f83d23;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 6px #000;
+}
+
 
 @media (min-width: 601px) {
 .w3-col.m6, .w3-half {

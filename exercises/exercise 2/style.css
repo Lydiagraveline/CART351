@@ -1,0 +1,72 @@
+
+html, body {
+  font-family: 'Courier New', monospace;
+  background-color: #26A68E;
+}
+
+  .body-wrapper{
+    width: 80%;
+    margin: auto;
+    background: #FE92E8;
+    /* #6699ff; */
+    padding-bottom: 10px;
+    text-align: center;
+    border: 2px solid #422800;
+    border-radius: 10px;
+  }
+
+  header h2{
+    text-align: center;
+    color: white;
+    background: #3377ff;
+    padding: 10px;
+  }
+
+  #day {background-color: #F2B807;}
+  #device{background-color: #26A68E;}
+  #time{background-color: #F25D50;}
+  #result{background-color: black; color:white;}
+  #clear{background-color: #f1f1f1; }
+
+/* modified button design by UIForms, Button 74: https://getcssscan.com/css-buttons-examples */
+/* CSS */
+.inp {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 18px;
+  margin: 10px;
+  text-align: center;
+  touch-action: manipulation;
+}
+
+.inp:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+table {
+  background: #f1f1f1;
+  width: 80%;
+  margin: auto;
+  border: 2px solid #422800;
+  border-radius: 20px;
+}
+
+th {
+    background: #f9f9f9;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 60px;
+}
+td {
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 60px;
+}

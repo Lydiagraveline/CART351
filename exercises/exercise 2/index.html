@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JSON LOAD EX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- class example -->
+    <div class="body-wrapper">
+      <header>
+        <h2>** SEARCH MY SEARCH HISTORY **</h2>
+      </header>
+
+      <!-- Day -->
+      <div id="input">
+      <select name="day" id="day" class="inp">
+        <!-- <option value="" selected disabled hidden>Day</option> -->
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+      </select>
+      <!-- Device -->
+      <select name="device" id="device" class="inp">
+        <!-- <option value="" selected disabled hidden>Device</option> -->
+        <option value="Laptop">Laptop</option>
+        <option value="Phone" selected >Phone</option>
+      </select>
+      <!-- Time -->
+      <select name="time" id="time" class="inp">
+        <option value="" selected disabled hidden>Time</option>
+        <option value="Morning">Morning</option>
+        <option value="Noon">Noon</option>
+        <option value="Afternoon">Afternoon</option>
+        <option value="Evening">Evening</option>
+        <option value="Night" selected>Night</option>
+      </select>
+      <!-- submit button -->
+      <input type="button" id="result" value="Result" class="inp"/>
+    </div>
+
+      <section id="result-container">
+        <table id="myTable">
+          <!-- <thead> -->
+          <tr>
+            <th>DAY</th>
+            <th>I SEARCHED</th>
+          </tr>
+          <!-- </thead> -->
+          <tbody></tbody>
+        </table>
+      </section>
+        <input type="button" id="clear" value="Clear" class="inp"/>
+    </div>
+  </body>
+</html>

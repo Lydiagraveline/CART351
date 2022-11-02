@@ -20,13 +20,30 @@ div {
   background-image: url("images/salad.jpeg")
 }
 #div2 {
-  /* background: something eventually */
+  background-color: #FE92E8;
+  padding: 0px;
 }
 #div3 {
   /* background: something eventually */
 }
 #div4 {
   /* background: something eventually */
+}
+
+.inp {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 18px;
+  margin: 10px;
+  text-align: center;
+  touch-action: manipulation;
 }
 
 footer {
