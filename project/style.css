@@ -10,6 +10,9 @@ html, body {
     /* font-family: Verdana,sans-serif; */
     font-size: 18px;
     line-height: 1.5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,6 +35,7 @@ p{
     width: 100%;
     z-index: 1;
 }
+
 
 .right {
     float: right!important;
@@ -118,25 +122,25 @@ p{
 .w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
     float: left;
     width: 100%;
-    border-style: solid;
-    border-color: red;
+    /* border-style: solid; */
+    /* border-color: red; */
 }
 
 .row{
   padding-top: 64px;
   padding-bottom: 64px;
-  border-style: solid;
-  border-color: red;
+  /* border-style: solid; */
+  /* border-color: red; */
 }
 
 #sticky{
-  position: sticky;
+  /* position: sticky;
   position: -webkit-sticky;
   background: #f83d23;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 6px #000;
+  box-shadow: 0 0 6px #000; */
 }
 
 
