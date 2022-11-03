@@ -1,0 +1,23 @@
+
+html,
+body {
+  --outerPanelColor: 	#251e19;
+  --goldColor: 	#c3890b;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* box-shadow: inset | offset-x | offset-y | blur-radius | spread-radius | color */
+
+div {
+  /* box-sizing: border-box; */
+  box-shadow: inset 0 0 0 5px var(--outerPanelColor), inset 0 0 0 10px var(--goldColor),
+    inset 0 0 0 30px var(--outerPanelColor), inset 0 0 0 35px var(--goldColor);
+  background-color: var(--outerPanelColor)
+}
+
+div:hover {
+  /* border: 3px solid green; */
+  --goldColor: #d3c088;
+}

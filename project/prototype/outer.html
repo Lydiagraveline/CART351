@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Outer Panel</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="outer.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <style>
+
+    .panel{
+      width: 50%;
+      height: 100%;
+      float: left;
+      /* center the content */
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    #rightPanel{
+      /* background: grey; */
+      /* float: right; */
+    }
+    #leftPanel{
+      /* background: black; */
+      /* float: left; */
+    }
+    </style>
+    <body>
+      <!-- <h2>outer panel</h2> -->
+      <div class="panel" id="leftPanel"></div>
+      <div class="panel" id="rightPanel"></div>
+    </body>
+  </html>
+</html>

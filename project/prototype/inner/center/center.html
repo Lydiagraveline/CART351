@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Center</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="center.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <style>
+
+    .panel{
+      width:100%;
+      height: 100%;
+      float: left;
+      /* center the content */
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    #top{
+      height: 30%;
+      /* background: grey; */
+      /* float: right; */
+    }
+    #middle{
+      height: 30%;
+      /* background: black; */
+      /* float: left; */
+    }
+    #bottom{
+      height: 40%;
+      /* background: black; */
+      /* float: left; */
+    }
+    </style>
+    <body>
+      <!-- <h2>outer panel</h2> -->
+      <div class="panel" id="top" onclick="location.href='heaven.html';"> Heaven and earth into the earthly sphere</div>
+      <div class="panel" id="middle" onclick="location.href='circuit.html';">The tantric circle (the wheel of life)</div>
+      <div class="panel" id="bottom" onclick="location.href='earth.html';">Earth (the allegory of sensory and sensual life)</div>
+    </body>
+  </html>
+</html>
