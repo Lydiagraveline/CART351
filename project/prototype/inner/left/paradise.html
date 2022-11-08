@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>Paradise</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <!-- <script src="center.js"></script> -->
+      <script src="main.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <style>
@@ -35,6 +34,7 @@
       width:50%;
       height: 100%;
       background-color: grey;
+      display: none;
     }
 
     #top{
@@ -48,6 +48,7 @@
     }
     </style>
     <body>
+      <div>heaven checkbox: <br><span id="heaven-check"></span> </div>
       <div class="container">
       <!-- <h2>outer panel</h2> -->
       <div class="panel-container">
@@ -55,9 +56,14 @@
       <div class="panel" id="middle" onclick="location.href='descent.html';">Descent of the divine</div>
       <div class="panel" id="bottom" onclick="location.href='earth.html';">Earth</div>
       </div>
-      <div class="panel new"> <p>Lose your inhibitions</p> </div>
+      <div class="panel new" onclick="location.href='../center/center.html';" > <p>Lose your inhibitions</p> </div>
     </div>
 
+    <script>
+      const heavenCheckBox = localStorage.getItem('heaven-check');
+      const test = localStorage.getItem("checkboxValues");
+      document.getElementById('heaven-check').textContent = test;
+
+    </script>
     </body>
-  </html>
 </html>

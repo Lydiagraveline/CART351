@@ -1,19 +1,55 @@
 <!DOCTYPE html>
-<html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>Heaven</title>
-    </head>
-    <body>
-      <h2>Heaven</h2>
-      <img src="images/gold.png" width="600px" alt="mountain" />
-      <img src="images/blue1.png" width="600px" alt="mountain" />
-      <img src="images/blue2.png" width="500px" alt="mountain" />
-      <img src="images/blue3.png" width="600px" alt="mountain" />
-      <img src="images/rabbit.png" width="600px" alt="rabbit" /> <br>
-      <img src="images/fountainTop.png" width="500px" alt="fountain" onclick="location.href='descent.html';" />
-      <a href="../center/center.html">lose your inhibitions</a>
-    </body>
-  </html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heaven</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h2>Heaven</h2>
+    <div id="checkbox-container">
+      <div>
+        <label for="option1">Option 1</label>
+        <input type="checkbox" id="option1" />
+      </div>
+      <div>
+        <label for="option2">Option 2</label>
+        <input type="checkbox" id="option2" />
+      </div>
+      <div>
+        <label for="option3">Option 3</label>
+        <input type="checkbox" id="option3" />
+      </div>
+    </div>
+
+    <a href="paradise.html">back</a> <br />
+
+    <img src="images/gold.png" width="600px" alt="mountain" />
+    <img src="images/blue1.png" width="600px" alt="mountain" />
+    <img src="images/blue2.png" width="500px" alt="mountain" />
+    <img src="images/blue3.png" width="600px" alt="mountain" />
+    <img src="images/rabbit.png" width="600px" alt="rabbit" /> <br />
+    <a href="descent.html">   <img src="images/fountainTop.png" height="500px" alt="fountain" class="clickable" /></a>
+
+    <script>
+      const heavenCheckBox = localStorage.getItem("heaven-check");
+
+      var checkboxValues =
+          JSON.parse(localStorage.getItem("checkboxValues")) || {},
+        $checkboxes = $("#checkbox-container :checkbox");
+
+      $checkboxes.on("change", function () {
+        $checkboxes.each(function () {
+          checkboxValues[this.id] = this.checked;
+        });
+        localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+      });
+
+      // On page load
+      $.each(checkboxValues, function (key, value) {
+        $("#" + key).prop("checked", value);
+      });
+    </script>
+  </body>
 </html>

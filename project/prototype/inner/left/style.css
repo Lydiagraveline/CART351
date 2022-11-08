@@ -20,3 +20,7 @@ div:hover {
   /* border: 3px solid green; */
   --goldColor: #d3c088;
 }
+
+.clickable {
+  border:3px solid red;"
+}
