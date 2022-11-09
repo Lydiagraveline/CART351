@@ -6,7 +6,8 @@ $( document ).ready(function() {
 
   $("#rightPanel").click(function(){
     console.log( "open center panel" );
-     window.open("inner/center/center.html", "_self");
+    //window.open("inner/center/center.html", "_self");
+    window.open("inner/left/paradise.html", "_self");
   });
 
 });

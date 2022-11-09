@@ -19,18 +19,18 @@
       <p>realm of the human world, where sensual preoccupation predominates above all other activities </p>
       <p> </p>
       <script>
-        const earthCheckBox = localStorage.getItem("earth-check");
-        // const earthChecked = localStorage.getItem("earthChecked");
+        const earthCheckBox = sessionStorage.getItem("earth-check");
+        // const earthChecked = sessionStorage.getItem("earthChecked");
 
         var earthValues =
-            JSON.parse(localStorage.getItem("earthValues")) || {},
+            JSON.parse(sessionStorage.getItem("earthValues")) || {},
           $checkboxes = $("#checkbox-container :checkbox");
 
         $checkboxes.on("change", function () {
           $checkboxes.each(function () {
             earthValues[this.id] = this.checked;
           });
-          localStorage.setItem("earthValues", JSON.stringify(earthValues));
+          sessionStorage.setItem("earthValues", JSON.stringify(earthValues));
         });
 
         // On page load

@@ -28,16 +28,16 @@
       <p>
       </p> -->
     <script>
-      const heavenCheckBox = localStorage.getItem("heaven-check");
+      const heavenCheckBox = sessionStorage.getItem("heaven-check");
 
-      var heavenValues = JSON.parse(localStorage.getItem("heavenValues")) || {},
+      var heavenValues = JSON.parse(sessionStorage.getItem("heavenValues")) || {},
         $checkboxes = $("#checkbox-container :checkbox");
 
       $checkboxes.on("change", function () {
         $checkboxes.each(function () {
           heavenValues[this.id] = this.checked;
         });
-        localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
+        sessionStorage.setItem("heavenValues", JSON.stringify(heavenValues));
       });
 
       // On page load

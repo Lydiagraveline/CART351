@@ -18,17 +18,17 @@
     <a href="center.html">back</a> <br />
     <a href="fruit.html">fruit</a> <br />
     <script>
-      const circuitCheckBox = localStorage.getItem("circuit-check");
+      const circuitCheckBox = sessionStorage.getItem("circuit-check");
 
       var circuitValues =
-          JSON.parse(localStorage.getItem("circuitValues")) || {},
+          JSON.parse(sessionStorage.getItem("circuitValues")) || {},
         $checkboxes = $("#checkbox-container :checkbox");
 
       $checkboxes.on("change", function () {
         $checkboxes.each(function () {
           circuitValues[this.id] = this.checked;
         });
-        localStorage.setItem("circuitValues", JSON.stringify(circuitValues));
+        sessionStorage.setItem("circuitValues", JSON.stringify(circuitValues));
       });
 
       // On page load
