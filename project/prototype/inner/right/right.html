@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Center</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="center.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <style>
+    .container {
+      height: 100%;
+      background-color: #000000;
+      display: flex;
+    }
+
+    .panel-container {
+      background-color: #000000;
+      width: 100%;
+    }
+
+    .panel {
+      background-color: #ffffff;
+      height: 100%;
+      /* center the content */
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .new {
+      width: 50%;
+      height: 100%;
+      background-color: grey;
+    }
+    #top {
+      height: 30%;
+    }
+    #middle {
+      height: 30%;
+    }
+    #bottom {
+      height: 40%;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="panel-container">
+        <div class="panel" id="top" onclick="location.href='heaven.html';">
+          Hell
+        </div>
+        <div class="panel" id="middle" onclick="location.href='circuit.html';">
+          Purgatory
+        </div>
+        <div class="panel" id="bottom" onclick="location.href='earth.html';">
+          Earth
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
