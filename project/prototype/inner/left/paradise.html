@@ -83,10 +83,13 @@
       // document.getElementById("earth-check").textContent = earthVal;
 
       $(document).ready(function () {
-        console.log("heaven: " + heavenVal)
-        console.log("descent: " + descentVal)
-        console.log("earth: " + earthVal)
+        // console.log("heaven: " + heavenVal)
+        // console.log("descent: " + descentVal)
+        // console.log("earth: " + earthVal)
 
+        $("#newPanel").click(function(){
+          // localStorage.clear();
+        })
 
         $("#newPanel").hide();
         let heaven = JSON.parse(heavenVal);

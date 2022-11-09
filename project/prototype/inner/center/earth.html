@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>Earth</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
       <h2>Earth (the allegory of sensory and sensual life)</h2>
+      <div id="checkbox-container">
+        <div>
+          <label for="option">Checkpoint</label>
+          <input type="checkbox" id="option" />
+        </div>
+      </div>
       <img src="images/earth.png" width="800px" alt="earth" /> <br>
       <a href="center.html">back</a> <br>
       <p>realm of the human world, where sensual preoccupation predominates above all other activities </p>
       <p> </p>
+      <script>
+        const earthCheckBox = localStorage.getItem("earth-check");
+        // const earthChecked = localStorage.getItem("earthChecked");
+
+        var earthValues =
+            JSON.parse(localStorage.getItem("earthValues")) || {},
+          $checkboxes = $("#checkbox-container :checkbox");
+
+        $checkboxes.on("change", function () {
+          $checkboxes.each(function () {
+            earthValues[this.id] = this.checked;
+          });
+          localStorage.setItem("earthValues", JSON.stringify(earthValues));
+        });
+
+        // On page load
+        $.each(earthValues, function (key, value) {
+          $("#" + key).prop("checked", value);
+        });
+      </script>
     </body>
   </html>
-</html>

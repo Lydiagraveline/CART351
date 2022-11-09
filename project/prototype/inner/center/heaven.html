@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>Heaven</title>
-    </head>
-    <body>
-      <h2>Heaven and birth into the earthly sphere</h2>
-      <a href="center.html">back</a> <br>
-      <img src="images/towers.jpeg" alt="strange towers" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heaven</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h2>Heaven and birth into the earthly sphere</h2>
+    <a href="center.html">back</a> <br />
+
+    <div id="checkbox-container">
+      <div>
+        <label for="option">Checkpoint</label>
+        <input type="checkbox" id="option" />
+      </div>
+    </div>
+    <!-- <img src="images/towers.jpeg" alt="strange towers" />
       <img src="images/mountain1.png" width="200px" alt="earth" />
       <p>The divine mountain, or mountain of god </p>
         <p>where the struggle between good and evil takes place. Phallic + fallopian elements. Sacred forces must be forever
@@ -16,15 +24,26 @@
       <img src="images/mountain2.png" width="200px" alt="earth" />
       <p>The earthly and divine mountain </p>
       <p>Represents the descent of divine energy from heaven, and the departure of souls from birth </p>
-
       <img src="images/Screen Shot 2022-11-03 at 12.04.31 PM.png" width="500px" alt="earth" /> <br>
       <p>
-      </p>
-      <!-- <a href="../../outer.html">back 2 outer panel</a>
-      <a href="">mermaids</a>
-      <a href="fruit.html">fruit (strawberry)</a>
-      <a href="">circuit</a> -->
-      <!-- <a href="">circuit</a> -->
-    </body>
-  </html>
+      </p> -->
+    <script>
+      const heavenCheckBox = localStorage.getItem("heaven-check");
+
+      var heavenValues = JSON.parse(localStorage.getItem("heavenValues")) || {},
+        $checkboxes = $("#checkbox-container :checkbox");
+
+      $checkboxes.on("change", function () {
+        $checkboxes.each(function () {
+          heavenValues[this.id] = this.checked;
+        });
+        localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
+      });
+
+      // On page load
+      $.each(heavenValues, function (key, value) {
+        $("#" + key).prop("checked", value);
+      });
+    </script>
+  </body>
 </html>

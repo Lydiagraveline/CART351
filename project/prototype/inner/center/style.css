@@ -12,7 +12,8 @@ body {
 
 div {
   box-sizing: border-box;
-  border: 3px solid green;
+  display: inline-block;
+  /* border: 3px solid green; */
   /* background-color: var(--outerPanelColor) */
 }
 
