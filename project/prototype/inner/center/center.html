@@ -59,7 +59,7 @@
         class="panel new"
         onclick="location.href='../right/right.html';"
       >
-        <p>Punishment</p>
+        <p>Hell and Earth</p>
       </div>
     </div>
 
@@ -75,6 +75,10 @@
           let heaven = JSON.parse(heavenVal);
           let circuit = JSON.parse(circuitVal);
           let earth = JSON.parse(earthVal);
+
+          $("#newPanel").click(function(){
+            localStorage.clear();
+          })
 
           if (heaven.option === true && circuit.option === true && earth.option === true) {
              $("#newPanel").show();

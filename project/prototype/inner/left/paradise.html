@@ -7,45 +7,6 @@
     <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <style>
-    .container {
-      height: 100%;
-      background-color: #000000;
-      display: flex;
-    }
-
-    .panel-container {
-      background-color: #000000;
-      width: 100%;
-    }
-
-    .panel {
-      background-color: #ffffff;
-      height: 100%;
-      /* center the content */
-      display: flex;
-      flex-flow: wrap;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .new {
-      width: 50%;
-      height: 100%;
-      background-color: grey;
-      /* display: none; */
-    }
-
-    #top {
-      height: 15%;
-    }
-    #middle {
-      height: 15%;
-    }
-    #bottom {
-      height: 70%;
-    }
-  </style>
   <body>
     <!-- <div>heaven checkbox: <br /><span id="heaven-check"></span></div>
     <div>descent checkbox: <br /><span id="descent-check"></span></div>
@@ -88,7 +49,7 @@
         // console.log("earth: " + earthVal)
 
         $("#newPanel").click(function(){
-          // localStorage.clear();
+          localStorage.clear();
         })
 
         $("#newPanel").hide();
