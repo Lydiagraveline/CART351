@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>Earth</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
@@ -15,6 +15,16 @@
         alt="the joining of adam and eve"
       />
       <div class="half">
+
+
+        <div id="checkbox-container">
+          <div>
+            <label for="option">Checkpoint</label>
+            <input type="checkbox" id="option" />
+          </div>
+        </div>
+
+
         <p>
           The 6th day when God created Adam and Eve, humans are still free from
           sin.
@@ -77,7 +87,27 @@
         In the wall of the pond, there is a cavity directly connecting the water to the cave.
       </p>
 
+
       <!-- <a href="../center/center.html">lose your inhibitions</a> -->
+      <script>
+        const earthCheckBox = localStorage.getItem("earth-check");
+        // const earthChecked = localStorage.getItem("earthChecked");
+
+        var earthValues =
+            JSON.parse(localStorage.getItem("earthValues")) || {},
+          $checkboxes = $("#checkbox-container :checkbox");
+
+        $checkboxes.on("change", function () {
+          $checkboxes.each(function () {
+            earthValues[this.id] = this.checked;
+          });
+          localStorage.setItem("earthValues", JSON.stringify(earthValues));
+        });
+
+        // On page load
+        $.each(earthValues, function (key, value) {
+          $("#" + key).prop("checked", value);
+        });
+      </script>
     </body>
   </html>
-</html>

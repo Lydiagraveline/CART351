@@ -10,10 +10,11 @@
     <h2>Heaven</h2>
     <p>  <a href="paradise.html">menu</a> </p>
     <p>Representing the heavenly realm</p>
+
     <div id="checkbox-container">
       <div>
-        <label for="option1">Option 1</label>
-        <input type="checkbox" id="option1" />
+        <label for="option">Checkpoint</label>
+        <input type="checkbox" id="option" />
       </div>
     </div>
 
@@ -127,19 +128,19 @@
     <script>
       const heavenCheckBox = localStorage.getItem("heaven-check");
 
-      var checkboxValues =
-          JSON.parse(localStorage.getItem("checkboxValues")) || {},
+      var heavenValues =
+          JSON.parse(localStorage.getItem("heavenValues")) || {},
         $checkboxes = $("#checkbox-container :checkbox");
 
       $checkboxes.on("change", function () {
         $checkboxes.each(function () {
-          checkboxValues[this.id] = this.checked;
+          heavenValues[this.id] = this.checked;
         });
-        localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+        localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
       });
 
       // On page load
-      $.each(checkboxValues, function (key, value) {
+      $.each(heavenValues, function (key, value) {
         $("#" + key).prop("checked", value);
       });
     </script>

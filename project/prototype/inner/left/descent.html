@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <title>descent</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
       <h2>The transitional realm</h2>
       <p>  <a href="paradise.html">menu</a> </p>
-      <a href="heaven.html#fountain">   <img src="images/fountainBottom.png" width="500px" alt="strange face" class="clickable"/></a>
+      <a href="descent.html#fountain">   <img src="images/fountainBottom.png" width="500px" alt="strange face" class="clickable"/></a>
       <br>
       <p>Water carries and conveys influences, it represents ideas and the flow of conciousness <br>
+
+        <div id="checkbox-container">
+        <div>
+          <label for="option">Checkpoint</label>
+          <input type="checkbox" id="option">
+        </div>
+      </div>
 
       </p>
       <img src="images/unicorn.png" height="300px" alt="unicorn" />
@@ -26,7 +33,25 @@
         Golgotha or "skull hill." It represents corruption of the mind.
       </p>
 
-      <!-- <a href="../center/center.html">lose your inhibitions</a> -->
+      <script>
+      const descentCheckBox = localStorage.getItem("descent-check");
+
+      var descentValues =
+          JSON.parse(localStorage.getItem("descentValues")) || {},
+        $checkboxes = $("#checkbox-container :checkbox");
+
+      $checkboxes.on("change", function () {
+        $checkboxes.each(function () {
+          descentValues[this.id] = this.checked;
+        });
+        localStorage.setItem("descentValues", JSON.stringify(descentValues));
+      });
+
+      // On page load
+      $.each(descentValues, function (key, value) {
+        $("#" + key).prop("checked", value);
+      });
+
+      </script>
     </body>
-  </html>
 </html>

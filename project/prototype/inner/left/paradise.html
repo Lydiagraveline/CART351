@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>Paradise</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="main.js"></script>
-      <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <style>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Paradise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <style>
     .container {
       height: 100%;
       background-color: #000000;
@@ -21,7 +20,7 @@
     }
 
     .panel {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       height: 100%;
       /* center the content */
       display: flex;
@@ -30,40 +29,74 @@
       align-items: center;
     }
 
-    .new{
-      width:50%;
+    .new {
+      width: 50%;
       height: 100%;
       background-color: grey;
-      display: none;
+      /* display: none; */
     }
 
-    #top{
+    #top {
       height: 15%;
     }
-    #middle{
+    #middle {
       height: 15%;
     }
-    #bottom{
+    #bottom {
       height: 70%;
     }
-    </style>
-    <body>
-      <!-- <div>heaven checkbox: <br><span id="heaven-check"></span> </div> -->
-      <div class="container">
+  </style>
+  <body>
+    <!-- <div>heaven checkbox: <br /><span id="heaven-check"></span></div>
+    <div>descent checkbox: <br /><span id="descent-check"></span></div>
+    <div>earth checkbox: <br /><span id="earth-check"></span></div> -->
+    <div class="container">
       <!-- <h2>outer panel</h2> -->
       <div class="panel-container">
-      <div class="panel" id="top" onclick="location.href='heaven.html';"> Heaven</div>
-      <div class="panel" id="middle" onclick="location.href='descent.html';">Descent of the divine</div>
-      <div class="panel" id="bottom" onclick="location.href='earth.html';">Earth</div>
+        <div class="panel" id="top" onclick="location.href='heaven.html';">
+          Heaven
+        </div>
+        <div class="panel" id="middle" onclick="location.href='descent.html';">
+          Descent of the divine
+        </div>
+        <div class="panel" id="bottom" onclick="location.href='earth.html';">
+          Earth
+        </div>
       </div>
-      <div class="panel new" onclick="location.href='../center/center.html';" > <p>Lose your inhibitions</p> </div>
+      <div
+        id="newPanel"
+        class="panel new"
+        onclick="location.href='../center/center.html';"
+      >
+        <p>Lose your inhibitions</p>
+      </div>
     </div>
 
     <script>
-      const heavenCheckBox = localStorage.getItem('heaven-check');
-      const test = localStorage.getItem("checkboxValues");
-      document.getElementById('heaven-check').textContent = test;
+      // const heavenCheckBox = localStorage.getItem('heaven-check');
+      const heavenVal = localStorage.getItem("heavenValues");
+      const descentVal = localStorage.getItem("descentValues");
+      const earthVal = localStorage.getItem("earthValues");
 
+      // document.getElementById("heaven-check").textContent = heavenVal;
+      // document.getElementById("descent-check").textContent = descentVal;
+      // document.getElementById("earth-check").textContent = earthVal;
+
+      $(document).ready(function () {
+        console.log("heaven: " + heavenVal)
+        console.log("descent: " + descentVal)
+        console.log("earth: " + earthVal)
+
+
+        $("#newPanel").hide();
+        let heaven = JSON.parse(heavenVal);
+        let descent = JSON.parse(descentVal);
+        let earth = JSON.parse(earthVal);
+
+        if (heaven.option === true && descent.option === true && earth.option === true) {
+          $("#newPanel").show();
+        }
+      });
     </script>
-    </body>
+  </body>
 </html>
