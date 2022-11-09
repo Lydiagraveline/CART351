@@ -34,17 +34,17 @@
       </p>
 
       <script>
-      const descentCheckBox = sessionStorage.getItem("descent-check");
+      const descentCheckBox = localStorage.getItem("descent-check");
 
       var descentValues =
-          JSON.parse(sessionStorage.getItem("descentValues")) || {},
+          JSON.parse(localStorage.getItem("descentValues")) || {},
         $checkboxes = $("#checkbox-container :checkbox");
 
       $checkboxes.on("change", function () {
         $checkboxes.each(function () {
           descentValues[this.id] = this.checked;
         });
-        sessionStorage.setItem("descentValues", JSON.stringify(descentValues));
+        localStorage.setItem("descentValues", JSON.stringify(descentValues));
       });
 
       // On page load

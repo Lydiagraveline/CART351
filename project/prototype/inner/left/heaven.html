@@ -126,17 +126,17 @@
     /></a>
 
     <script>
-      const heavenCheckBox = sessionStorage.getItem("heaven-check");
+      const heavenCheckBox = localStorage.getItem("heaven-check");
 
       var heavenValues =
-          JSON.parse(sessionStorage.getItem("heavenValues")) || {},
+          JSON.parse(localStorage.getItem("heavenValues")) || {},
         $checkboxes = $("#checkbox-container :checkbox");
 
       $checkboxes.on("change", function () {
         $checkboxes.each(function () {
           heavenValues[this.id] = this.checked;
         });
-        sessionStorage.setItem("heavenValues", JSON.stringify(heavenValues));
+        localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
       });
 
       // On page load

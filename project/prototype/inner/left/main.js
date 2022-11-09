@@ -7,5 +7,5 @@
 //   const firstNameValue = firstName.value
 //   const lastNameValue =  lastName.value
 //
-//   sessionStorage.setItem('myObject', JSON.stringify([firstNameValue, lastNameValue]))
+//   localStorage.setItem('myObject', JSON.stringify([firstNameValue, lastNameValue]))
 // });
