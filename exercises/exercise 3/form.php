@@ -180,14 +180,14 @@ $eachlines = file($myTruisms, FILE_IGNORE_NEW_LINES);
     function displaySubmissions(parsedJSONArray){
         $("#sub").show();
         $(".wrapper-flex").empty();
-  for(let i =0; i<parsedJSONArray.length;i+=1){
+  for(let i =0; i<parsedJSONArray.length;i++){
      //**** need to split every string here on : ***/
 
     let container = $("<div>");
     $(container).addClass("single_container");
 
     let truth = $("<p class='submissions'>");
-    truth.html(parsedJSONArray[i+1]);
+    truth.html(parsedJSONArray[i]);
     $(container).append(truth);
 
     $('.wrapper-flex').append(container);
