@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Earth</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+      <h2>Earth (the allegory of sensory and sensual life)</h2>
+      <p>  <a href="center.html">menu</a> </p>
+      <img src="images/earth.png" width="100%" alt="earth" /> <br>
+      <div style="margin:25px">
+      <div id="checkbox-container">
+        <div>
+          <label for="option">Checkpoint</label>
+          <input type="checkbox" id="option" />
+        </div>
+      </div>
+      <br>
+
+      <p>realm of the human world, where sensual preoccupation predominates above all other activities </p>
+      <p>It represents an allegory of divine influences contaminated by contact with the sensuality of the earthly sphere. </p>
+      <img src="images/blueberry.png" height="200px" alt="blueberry" />
+      <div style="width: 100px">
+      <p> A man is overwhelmed by earthly influences and temptation finds himself swallwed by a blue egg, with no means of escape.</p>
+    </div>
+      <img src="images/pinkEgg.png" height="200px" alt="pink egg" />
+      <img src="images/mortality.png" height="200px" alt="pink egg" />
+      <img src="images/homosexual.png" height="200px" alt="homosexual" />
+
+    <img src="images/head.png" height="300px" alt="blueberry head" />
+    <img src="images/owl.png" height="300px" alt="owl" />
+    <img src="images/vessel.png" height="300px" alt="vessel" />
+    </div>
+      <script>
+        const earthCheckBox = localStorage.getItem("earth-check");
+        // const earthChecked = localStorage.getItem("earthChecked");
+
+        var earthValues =
+            JSON.parse(localStorage.getItem("earthValues")) || {},
+          $checkboxes = $("#checkbox-container :checkbox");
+
+        $checkboxes.on("change", function () {
+          $checkboxes.each(function () {
+            earthValues[this.id] = this.checked;
+          });
+          localStorage.setItem("earthValues", JSON.stringify(earthValues));
+        });
+
+        // On page load
+        $.each(earthValues, function (key, value) {
+          $("#" + key).prop("checked", value);
+        });
+      </script>
+    </body>
+  </html>

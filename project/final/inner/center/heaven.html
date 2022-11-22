@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heaven</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div style="height:100px;background:lightblue;">heaven/sky</div>
+    <h2>Heaven and birth into the earthly sphere</h2>
+    <p>  <a href="center.html">menu</a> </p>
+    <img src="images/towers.png" alt="strange towers" width="100%"/>
+    <div id="checkbox-container">
+      <div>
+        <label for="option">Checkpoint</label>
+        <input type="checkbox" id="option" />
+      </div>
+    </div>
+    <br>
+    <div class="row" style="background-color: #add8e6;">
+      <div class="column quarter">
+        <img src="images/mountain1.png" alt="mountain" width="100%" />
+        <p>The divine mountain, or mountain of god </p>
+        <p>
+          where the struggle between good and evil takes place. Phallic + fallopian elements. Sacred forces must be forever
+          on guard against the profane
+        </p>
+      </div>
+      <div class="column quarter">
+        <img src="images/mountain2.png" alt="mountain" width="100%" />
+          <p>The earthly and divine mountain </p>
+        <p>
+          Represents the descent of divine energy from heaven, and the departure of souls from birth
+        </p>
+      </div>
+      <div class="column quarter">
+        <img src="images/mountain3.png" alt="fountain" width="100%" />
+        <p>The central fountain, or mountain of man</p>
+        <img src="images/detail.png" alt="fountain detail" width="100%" />
+        <a href="circuit.html">Visit the Tantric Circle</a>
+      </div>
+      <div class="column quarter">
+        <img src="images/mountain4.png" alt="mountain" width="100%" />
+        <p>The divine and earthly mountain</p>
+          <p>represents a return of souls to heaven</p>
+      </div>
+      <div class="column quarter">
+        <img src="images/mountain5.png" alt="mountain" width="100%" />
+        <p>The material mountain, or kingdom of earth</p>
+      </div>
+    </div>
+    <br>
+    <script>
+      const heavenCheckBox = localStorage.getItem("heaven-check");
+
+      var heavenValues = JSON.parse(localStorage.getItem("heavenValues")) || {},
+        $checkboxes = $("#checkbox-container :checkbox");
+
+      $checkboxes.on("change", function () {
+        $checkboxes.each(function () {
+          heavenValues[this.id] = this.checked;
+        });
+        localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
+      });
+
+      // On page load
+      $.each(heavenValues, function (key, value) {
+        $("#" + key).prop("checked", value);
+      });
+    </script>
+  </body>
+</html>
