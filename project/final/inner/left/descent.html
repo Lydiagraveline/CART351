@@ -7,18 +7,93 @@
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-      <h2>The transitional realm</h2>
-      <p>  <a href="paradise.html">menu</a> </p>
-      <a href="heaven.html#fountain">   <img src="images/fountainBottom.png" width="500px" alt="strange face" class="clickable"/></a>
-      <br>
-      <p>Water carries and conveys influences, it represents ideas and the flow of conciousness <br>
 
-        <div id="checkbox-container">
+      <div style="position: relative; left: 0; top: 0;">
+        <!-- clickable orb, takes you to the "descent" section -->
+        <a href="heaven.html#orb">
+        <img id="orb1" class="orb zoom " style="width:15%; top:0;"src="images/whiteOrb.png" alt="path" />
+        </a>
+
+        <img src="images/fountainBottom.png" width="100%" alt="fountain" />
+
+        <div style="position:absolute; left:0; bottom:0; z-index:1;">
+          <pre>
+            ,,))))))));,
+            __)))))))))))))),
+    \|/       -\(((((''''((((((((.
+    -*-==//////((''  .     `)))))),
+    /|\      ))| o    ;-.    '(((((                                  ,(,
+          ( `|    /  )    ;))))'                               ,_))^;(~
+             |   |   |   ,))((((_     _____------~~~-.        %,;(;(>';'~
+             o_);   ;    )))(((` ~---~  `::           \      %%~~)(v;(`('~
+                   ;    ''''````         `:       `:::|\,__,%%    );`'; ~
+                  |   _                )     /      `:|`----'     `-'
+            ______/\/~    |                 /        /
+          /~;;.____/;;'  /          ___--,-(   `;;;/
+         / //  _;______;'------~~~~~    /;;/\    /
+        //  | |                        / ;   \;;,\
+       (<_  | ;                      /',/-----'  _>
+        \_| ||_                     //~;~~~~~~~~~
+            `\_|                   (,~~ 
+                                    \~\
+                                     ~~
+    
+          </pre>
+        </div>
+
+
+      </div> 
+      <p>  <a href="paradise.html">menu</a> </p>
+      <!-- checkpoint -->
+      <div id="checkbox-container">
         <div>
           <label for="option">Checkpoint</label>
           <input type="checkbox" id="option">
         </div>
       </div>
+      <br>
+
+      <!-- form -->
+      <div>
+      <form id="form">  
+        <label for="sex" >I am/We are a</label>
+        <input id="sex" name="sex" list="suggestions" placeholder="woman">
+          <datalist id="suggestions">
+            <option value="Man">
+            <option value="Woman">
+            <option value="Couple (man and woman)">
+            <option value="Couple (2 men)">
+            <option value="Group (men and/or women)">
+          </datalist>
+
+        <label for="seeking">seeking a</label>
+        <input id="seeking" name="seeking" list="suggestions">
+          
+        <label for="min_age" >between the ages of</label>
+        <input id="min_age" name="min_age" type="text" placeholder="18"/>
+        <label for="max_age" >and</label>
+        <input id="max_age" name="max_age"type="text" placeholder="35"/>
+
+        <label for="looking">looking for: </label>
+        <input id="looking" name="looking" type="text" placeholder="love"/>
+          
+      
+        <p><input type="submit" name="submit" value="SUBMIT" id=buttonS onclick="location.href='earth.html'"/> </p>
+      </form>
+    </div>
+
+
+
+      <img src="images/brain.png" width="50%" alt="brain" />
+      
+      
+      <!-- <h2>The transitional realm</h2>
+      
+      <a href="heaven.html#orb">   <img src="images/fountainBottom.png" width="500px" alt="strange face" class="clickable"/></a>
+      <br>
+      <p>Water carries and conveys influences, it represents ideas and the flow of conciousness <br>
+
+
 
       </p>
       <img src="images/unicorn.png" height="300px" alt="unicorn" />
@@ -27,13 +102,48 @@
       <br>
 
 
-      <a href="earth.html#pond">   <img src="images/vermin.png" height="300px" alt="vermin" class="clickable" id="face"/></a>
+      <a href="earth.html#orb">   <img src="images/vermin.png" height="300px" alt="vermin" class="clickable" id="face"/></a>
       <img src="images/face.png" height="300px" alt="strange face"/>
       <p>On the right, vermin begin to spawn. They creep out of the water, crawling towards a dark cavity resembling a human face. Possibly
         Golgotha or "skull hill." It represents corruption of the mind.
-      </p>
+      </p> -->
 
       <script>
+         $(document).ready (function() {
+
+          $("#form").submit(function(event){
+            event.preventDefault();
+             //turn the data into an array
+            let data =$('#form').serializeArray();
+            console.log("button clicked");
+            for(let valuePairs of data.entries()) {
+             console.log(valuePairs[0]+ ', ' + valuePairs[1]);
+             }
+
+                     //request
+        $.ajax({
+            type:"GET",
+            url: "php/submit.php",
+            data: data,
+            dataType: "text",
+            cache: false,
+            timeout: 600000,
+            success: function(response){
+                console.log(response);
+                console.log("success!");
+                // $('#textBox').val('');
+            }, //success
+            error: function(){
+                console.log("error occured");
+            }//error
+        }) //ajax
+        //window.open("submissions.php");
+    })//submit
+          })
+
+         
+
+
       const descentCheckBox = localStorage.getItem("descent-check");
 
       var descentValues =
@@ -54,4 +164,7 @@
 
       </script>
     </body>
+
 </html>
+
+

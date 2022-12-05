@@ -8,12 +8,60 @@ body {
   padding: 0;
 }
 
+/* body { padding: 2em; } */
+#container {
+   width: 100%; 
+   height: 100%; 
+   /* margin:20px;  */
+   /* border: 1px solid #000;  */
+   overflow:hidden;
+   position: relative; 
+   display: flex;}
+
+#center { 
+  width: 500px; 
+  margin: auto; 
+  color:white;
+   overflow: hidden; 
+    display: flex;
+  }
+
+.field { 
+  
+  /* display:none; */
+  /* width: 10%;  */
+  /* width:20px;
+  height:20px; */
+  overflow:scroll;
+  /* height: 20px;  */
+  position: absolute; 
+  color: black;
+  text-align: center;
+  /* display:flex;
+  justify-content: center; */
+  /* padding: 10px; */
+  /* background: #f00; */
+}
+
+.invisible {
+  visibility: hidden;
+  /* display: block; */
+}
+#crosshair-x { width: 100%; height: 1px; background: #000; position: absolute; left: 0; top: 50%; }
+#crosshair-y { width: 1px; height: 100%; background: #000; position: absolute; left: 50%; top: 0; }
+.ascii{
+ position: absolute;
+ font:4.17px monospace;
+ z-index: 1;
+ line-height: 5.4px; 
+}
+
 /* box-shadow: inset | offset-x | offset-y | blur-radius | spread-radius | color */
 
 div {
   box-sizing: border-box;
   /* display: inline-block; */
-  border: 3px solid green;
+  /* border: 3px solid green; */
   /* width:100%; */
 
 }
@@ -45,4 +93,93 @@ div:hover {
   content: "";
   display: table;
   clear: both;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%; 
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#slider{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  margin:50px auto;
+  width: 50%;
+  /* height:400px; */
+  padding:5px;
+  box-shadow: 0 0 20px rgba(0,0,0,1);
+  /* position:relative; */
+  /* display: inline-block; */
+  }
+
+  #slider>li{
+    /* position:absolute; */
+    list-style:none;
+    
+    /* top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px; */
+    }
+
+    #slider>li>img{
+      width: 100%;
+    }
+
+#middle {
+  height: 15%;
+  background-image: url('images/circle.png');
+  background-position: center;
+}
+
+blink {
+  animation: 2s linear infinite blink_effect;
+  color: blue;
+}
+
+@keyframes blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+ .graphic.id-98 {
+  background-image: url(images/sprite30.png);
+  background-position: -962px -516px;
+  width: 121px;
+  height: 87px;
 }

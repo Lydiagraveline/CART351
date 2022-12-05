@@ -7,45 +7,140 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <h2>The tantric circle (the wheel of life)</h2>
-    <p>  <a href="center.html">menu</a> </p>
-    <img src="images/circuit.png" width="100%" alt="circuit" /> <br />
-    <div id="checkbox-container">
-      <div>
-        <label for="option">Checkpoint</label>
-        <input type="checkbox" id="option" />
-      </div>
-    </div> <br>
-
-
-      <div  style="width:45%">
-      <img src="images/circle.png" width="30%" alt="circle" />
-      <img src="images/circle2.png" width="66%" alt="circle" />
+  <div id="container">
+    <!-- shopping cart -->
+    <div style= "right: 0px; top: 0px; float:right; position: absolute; margin: 10px;">
+      <p>shopping cart:</p> 
+      <p id="cart">0 items</p>
+        <input type="button" onclick="emptyCart()" value="empty cart" />
+        <input type="button" onclick="openForm()" value="check out" class="open-button"/>
+        <div class="form-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <!-- <h1>Login</h1> -->
+        
+            <label for="num"><b>Card number</b></label>
+            <input type="text" placeholder="" name="num" required> <br/>
+        
+            <label for="exp"><b>Expiry date:</b></label>
+            <input type="text" placeholder="" name="exp" required> <br/>
+  
+            <label for="sec"><b>Security code:</b></label>
+            <input type="text" placeholder="" name="exp" required> <br/>
+        
+            <button type="submit" onclick="location.href='center.html'" class="btn">checkout</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
     </div>
-      <div class="row" style="width:50%">
-      <div class="column" >
-      <img src="images/pool.png" width="100%" alt="circle" />
+    <div id="center">
+      <!-- center ascii image -->
+      <img src="images/glow.png" width="100%" alt="pool" />
+      <p class="ascii"> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>..........................................................................................,.........,,,......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..........................,.,..,..,,,,,,,,,,,,,,,,,,,,,.,,.,,,,,,,,,,,<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGoGoooG999GGGGGGGGGGoo..,oo.*****^^********^^^^********.^*^^^CCCGCGCGC99GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGSGGSSGSSGS<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCCCC??9GGGGGGGGGGGovo**^*****^^*^******^****C*******o****CCCCCCCC?C9G9GGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGoooo**CCCCCC99GGGGGGGGSGGGG**CCCCCCGSSSSpC*^******************^^^*^^^*C^*^C?GGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGooGo.*^^^^^9GGGGGGGGGGGGGp,o^*******.**^..^^^^^*.^^*^*******o*oC*GGoGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGooo..^^^^^C*?999GGGGGGGGGpGGGGjGGGGjGGGGGGGGGSSSGSSGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGQs#####NQpGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGooo..^^^^*^^^^^^?^^?^?^*^^^^^^^^^^^^^**<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGQs###########G3#WQGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG;##@###@###3@###Q#####NpGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>G9GGGGGGG9GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG@#b#TG$^8@Q#@#Q@##@#######pGGGGGGGGGGGGGGGGGSpSSSGSSSG9GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG#boGG^+|&nbsp;'*8#S@GGG983@######pGGGGGGGGQS#Q##G7Gb?9C.C??^?GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GG9GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*jQsssQ###QpGGGGGGGGGGGGGGGGGG@bGGGC*&nbsp;G&nbsp;&nbsp;&nbsp;*@p@b@pGS@##@#####QGGGGG@#88p8SGGCC\.pGG9Gp*^^*ClGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGG999GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG,s#####@#########bGGGGGGGGGGGGGGGG$pGGGSC^&nbsp;*G&nbsp;&nbsp;&nbsp;l###GQG#@#########pGGG#@Q@pGG9GCooo9GG^*GG^GCGpGI9GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCGG,####################N&nbsp;&nbsp;'TGGGGGGGGGGG8##p@bp^^^&nbsp;"c&nbsp;&nbsp;@#@##N############NG83@##bGGG^?G9GQppv&nbsp;:&nbsp;'GTGG3SSQGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCG)######################b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%pGGGGGGG%###b?@@@@b8Wp?**@########@#@######CCGGGGGGGGSS9G$GNQ"G,^:.lplQ#8Q#pGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCC@######################bS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%GGGGGGGGG^&nbsp;&nbsp;&nbsp;9@##Q@#p?&nbsp;&nbsp;^@@##@###########bGG^^.^.GGGGG88WNNs.,^9GG98####@#bGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCC@########################Qp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.lGGG*CGf&nbsp;&nbsp;&nbsp;&nbsp;*G9G8bb^^&nbsp;&nbsp;&nbsp;&nbsp;?@###@Npp@#####bGGGC****GGGGGGGGGGSQSC^? 9GG8Gb$^sGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGG99GGGGGGGGGGGGGGGGGGGGGCoj##########################b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"8#Np&nbsp;:GGGG.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.SS@#@#QjQ######bGGGGCCC**C*GGGGGGGGQppsp^?9GG9G@#pGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCC@###########################po&nbsp;&nbsp;@GQp&nbsp;&nbsp;~.lSQQ^^&nbsp;?CGGGGGGoGGGG@N#G#jQ####@###QGGGo^^^^.^*GGGGQGGGGSQS#SG$#S###NGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCGo3############################C&nbsp;fj##b&nbsp;,o?C^@#@pGGGGGGGGGGGGGS@##QQ######@###5G9#####p&nbsp;&nbsp;**GGGG8GGQ$###Q#Cp8@p@bGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGj############################p^*`?~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#G88###pGGGGGGGGGGG@###@@#########bGCG@@###QpG&nbsp;^^?9GG$##@#lGG#GGS@Q$pGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*@#######################@##bb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;*G9#SGGQ#IGGGGGGGGGG##SS#@##########SC*GG8G@8#bTG&nbsp;&nbsp;&nbsp;*GGGGG$$#GGSjNQ8##GG*CGGGCCCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGC@##########################b@+^&nbsp;****^%#Np3pl#pGGGGGGGGQ####lS@###########`**.GGGGC9C.&nbsp;&nbsp;&nbsp;.oGGGGGG#b8Gb###G@@bC*C*CCGCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG8###########################8bGGGGC**^?@####GGGGGGQs###S#$#Q$@###########Qpp,,#pGGGC**^**GGGGGGpG\S#####N#SbGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGC@############################GGGGGC*^^j####################################SQ9G@QSGGGGGGGGGGGGGGG@######@#GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG8#########################Q#SSQQQQQ#########$####################@###############QGGGGGGGGGGGGGG8#######bGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG^@#####################Q@##GG#####Q#######$$##$$####$$#####G#$#@@######@######GG$SGSGGGGGGSGGGGG#@###@Q@GGGGGGGG*GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGC@#####################3##b8GG$@@#S#$SSSGGGGSS$$$GGGG$@b$GG@GGS@@######@###bGGGGGGGGGQQ##SSGGGG8@b8@Q##GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGp3@##################p@##G8G$@@#WQ##SGGGGGGGGGlSGGGG$GGGGGSlGG$@###########QQQ##########QQ##TG?  "TG"@#SQpGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCGQ#############@######bG@QGGGG$@#bj##SGGGGGGGGGGGGGGGGGGGGGGQGGG8@############@##########b^^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'G*"WWN/GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGvppGG@###@@############bj##bG@#+GGGG$@#####GGGGGGGGGGGGGGGGGGGGGGG8SGG8@#S$####@#########GCC^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^lloplG? GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG$@####@@#########b#b, ##bGC@#!GGGS#########SSSG<a href="center.html">close</a>GGGGGGGGGGGGGGGGGGGGGS8@Q#S$#@@##@####QbC^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.. G8WWG\GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGC**Glj@#Q###@#############b|GGC@bSSSSS#########SSGGGGGGGGGSSSSSSSSSSGGGGGS8#############@bGGo*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;^^'G#NQpvG@pSGGGGGGGGGGGGGG9GGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCGGGGGGG$G@#@####b||`^*G7W5b7+^CC**@b$SGGGS$l$#@#7####NQSQSSSGGlSS#SSSSSGGGGGSQQ$#############GGGGGo.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.***,l8W"^jpGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*GGGGC*j8@b###Wb^.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:^W^^^G***;#oSQGGGGGS##b**C'@##########SSGGSS$Sl#####################$#QSGGG^*.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*^^*GC@QQpG##QSGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGoGoGGGGGGGGGGGGGGGGGGGGGGGGA@##@##bGGo^.^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*o'%p,j#bGGGQGSSSSS#b******o7@###########SSSSS#$##############SQ###QG#GGGGGoG.&nbsp;&nbsp;&nbsp;&nbsp;^.^?GGG*^GQs##G$GSGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG;###@###IGGo*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**^ooGGGGGGGGG$#G$###CC**C**@################################bGGGG$##SGGGGGoo*&nbsp;&nbsp;..^^^&nbsp;&nbsp;?CG8Gl###SSSGGGGGGGGCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG@##@##bGGGGGo*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^:SGGGGGGGGGGG$QSS##b*CCCC*@################################bGGGGGGl$SGGGGGCC^^.^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="earth.html">to the code</a>jGGS8G$GG8GGGSGGGGGGGGGCGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCC*G8#@#####SGGGGGGo.&nbsp;&nbsp;&nbsp;,;##GGGGGSGGGGGQ#GSl$b*******3#################################pGGGGGG$GSGGGGGC^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:GGSGGGGGGG$GSSSGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCCGCG##@##bGGGGGQSS##SSSSSS#######GGGGS#@GGGS##p********@##################################SSSGGGGSGGGGGGGGGGGooGGGGGGGGSGGGSSQSSSGSSQQGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCCCoG;##SS98##GGGGSQ$QQSSSQQQS$SGGGSGG#QGGGGGSQ##b*G*C****8###################@@@##@#########S$SQSGGGSSGGGGGGGGGGGGGGGGGGGGGGG9GGGGGGGGSSGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGCGGCCGs########QQSSQQSS$$##@###S#SSSSSSSSSSSSS######p*GGGGo**C@######################@b887@#####bGGGGSGl#QGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGG*j################GGG9##<a href="heaven.html">i feel<a>########SSSGGGGGGGGSS##@Qb*CCGCC***C@#####################b****O^@#####GGSGGGG#GGGGGGGGGGGGGGGGGGGGGGGSSGp,oGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGQ################GGGS9############SSGGGGGG$##S$###*GC*C**GGGC*@###################bG*CC**G'@#####NGGSS#SSGGGGGGGGGGGGGCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGG##S$##$######bGGGGGGGG$llS$GGGGGGGGGGGGGGGSS$S#####p*C**GC*GGCGj##################b***CC*C**G^@#####S##GGGSGGGGGGC*CGGGGGC*GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGG######$$GGGG#GGGGGGGG#l#QGGGGGGGGGGGGGGGGSS#########p*GCCC*GCGGC@#################C***GGGGG*CCo@#####GGGGGGGGGGGGGGGGGGGGCCGGGGGGGGGGGGGGGGCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGG8#####SGGGGGG$GGGGGG9SSGGGGGGGGGGGGGGGGS#############p^oo**CGC*o*@###############b*G**GGGGGoCGG'@###GGGGGGGGGGGGGGGGGGCCC***GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGC8@####SSGGGSGGSGGGGGGGGGGGGGGGGGGGGGGGG$$###########b****CGGGCG*@###############C*OCCGGGGGGCC*G*^@#NGGGGGGGGGGGGGGGGG***C***CCGGGGGGGCCC**CGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG@####SSSGGGGSSGGGSGGGGGGGGGGGGGGGGGGGG$$######$###b***o*CGo****@##############o*GGGGGGGGGGGGCCG^@bGGGGGGGGGGGGSGGGGC*********CCGCCC**^^**CCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGG*9@####QSSGGGSGGGGGSGGGGGGGGGGGGGGGGGGSS#####$#####b***GCCC*C**^@#############bGC*OGGGGGGGGCCC*GG^SGGGGGGGGGG##GGGGGGGGo*****^*^^^^^^^^^^*^**CGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGCGGC*@###SGGGGG$#SSGGlGGGGGGGGGGGGGGGGGGGGl##@#######b*GCGCCCCC**o*@#############pC**CCCCGGGGCCCCCGjGGGGGGGGG####GGGGGGGGCC*^^^^.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...^^***GGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGC7@###QSGGG8$#SGGGGGGGGGGGGGGGGGGGGGGGGGGG$####b**COCCOCGCCoCG@##############******C*GGCGo***j#GGGGGGGQ####SGGGGGGGGo*^^^^^.^&nbsp;&nbsp;&nbsp;&nbsp;^....^^***GGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*@$##SGGGG8@#SSGGSGGGGGGGGGGGGGGGGGGGGGGGGG$$pGC*CCCC*CCCCC*9@#############p********CCCCC*;#GGGGGGS########SGGGGGGGo*o**********.*****ooGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG7@$##SGGGG@QSSSG$SSSGGGGGGGGGGGGGGGGGGGGGG$#NpCoCC**CCCC****@############********C***C*o@$GGSSS##########GGGGGGGGGGGGGGGoo***oooGGGGGGGGGGGGGGCGCGGGGGGGGGGGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*9$$SQGGGG88N###GGGGGSSGGGGGGGGGGGGGGGGGGGGG$#pC*G****CCGoC@##########b*********ooCoG,##GGGGG8@#########SGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGOGGCCGGCGGGGGGGCGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*?$##SGGGGGGC*8S#SSSGGGSSGGGGGGGGGGGGGGGGGG$##ppCC*CC*C**!$########b*********C*;####lSGGGGG@##$GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG*GGGCCCCCGGGGGGGGGGCGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGo'8#GGGGGGGGGGG?8QSSSGGGSGGGGGGGGSGGGGGGGGGGl#$#NpGo*o**^@@#######b**^.*j,p#####bG$##QGGG@#GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGCGGGGGGCCCGCGGGGGGGGG<br>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGSSSGGGGGGGGQpGC8SGGGGGSSSSSS$SGGGSGGGGSGGGSSQ$$#ppGG*C^@#######ppp##########S@##G$QGGG##GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG9*GGCGCGGGGGGGGGGGCCC*GGGGGGGG<br>
 
-      <!-- <div class="column"> -->
-        <p>
-          Central pool represents human consciousness, much like the pool at the bottom of the left panel.
-          populated by virgins, watched over with divine cranes, this scene illustrates a traditional esoteric understanding:
-          the essential (and fertile) femininity of mankind's consiousness, which is designed and intended
-          solely to receive the diving influences from the Heavenly Father. <br>
-          Tempation ecisrs here as well, but, as is fitting for a man's innermost essence, cherries --
-          temptations not of the flesh, but of the soul.
-        </p>
-      </div>
+      </p>
     </div>
-    <div style="margin:25px">
-    <a href="earth.html"><img src="images/first.png" height="300px" alt="group" class="clickable"/></a>
-    <a href="earth.html"><img src="images/last.png" height="300px" alt="group" class="clickable"/></a>
-    <p>
-      Here are the last and the first groups, showing the continues descent in a counterclockwise descent into
-      <a href="earth.html">earthly influences</a>.
-    </p>
-  </div>
+    <!-- <div id="crosshair-x"></div>
+    <div id="crosshair-y"></div> -->
+    
+    <!-- get paid! -->
+    <div class="field" onclick="addToCart()">
+      <img src="images/getPaid.gif" />
+
+    </div>
+    <!-- 2: dead bird -->
+    <div class="field" style="height:280px;">
+      <img src="images/deadBird.jpeg" width="150px" alt="dead bird" />
+    </div>
+
+    <!-- 3: dog-->
+    <div class="field" style="height:300px; width: 300px;">
+      
+      <img src="images/gears.gif" width="300px" />
+      <!-- <img class="graphic id-98"></img> -->
+     
+      <img src="images/dog.png" style="top:0; right:0; position:absolute; z-index:99; height:75%"  />
+     
+    </div>
+
+    <!-- 4: ladies -->
+    <div class="field" style="width:220px; height: 220px; cursor: grab;" onclick="addToCart();">
+      <!-- <img src="images/38.gif" width="100px" /> <br> -->
+      <img src="images/8.gif" width="60px" />
+      <img src="images/9.gif" width="60px" />
+      <img src="images/10.gif" width="60px" /> <br/>
+      <blink>You can have it all!</blink>
+    </div>
+    
+    <!-- 5: white goat -->
+    <div class="field" style="left: 130px; top: 410px; width: 200px;">
+      <img src="images/whiteGoat.jpeg" width="100%" alt="white goat" />
+
+    </div>
+
+    <!-- 6: cherries -->
+    <div class="field" style="left: 92px; top: 292px;">
+      <img src="images/cherries.jpeg" width="200px" alt="cherries" /> <br/>
+      <a onclick="addToCart();">add to cart!</a>
+    </div>
+      <!-- blue berry -->
+    <div class="field" style="width: 200px;" onclick="addToCart();">
+      <img src="images/blueBerry.png" width="200px" alt="blue berry" /> <br/> 
+      <blink> !! NEW FLAVOR !! </blink> <br/>
+      <blink> !! try now !! </blink>
+    </div>
+    <!-- 8: white horse-->
+    <div class="field" height="250px;"> 
+      <img src="images/whiteHorse.jpeg" width="200px" alt="white horse" />
+    </div>
+
+    <!-- 9: cross -->
+    <div class="field" style="left: 354px; top: 102px;" onclick="addToCart();">
+      <img src="images/1.gif" width="100px" /> <br>
+      <a href="heaven.html"><blink> CLICK to be forgiven! </blink></a>
+    </div>
+    
+    <!-- 10: unicorn -->
+    <div class="field" style="left: 454px; top: 174px;">
+      <img src="images/unicorn.jpeg" width="150px" alt="unicorn" />
+    </div>
+</div>
+
+ 
     <script>
+          function addToCart()
+{
+    let value = localStorage.cart;
+    value = isNaN(value) ? 0 : value;
+    value++;
+    let items="<p>test</p>";
+    if (value <=1){
+      $("#cart").text(value+" item");
+    } else {
+      $("#cart").text(value+" items");
+    }
+    localStorage.setItem("cart", value);
+    // console.log(localStorage.cart)
+    
+}
+
+function emptyCart(){
+  localStorage.setItem("cart", -1);
+  addToCart();
+}
+
+       $(document).ready (function() {
+        //display cart items
+        let value = localStorage.cart;
+        let items="<p>test</p>";
+    if (value <=1){
+      $("#cart").text(value+" item");
+    } else {
+      $("#cart").text(value+" items");
+    }
+       })
+
+
       const circuitCheckBox = localStorage.getItem("circuit-check");
 
       var circuitValues =
@@ -63,6 +158,55 @@
       $.each(circuitValues, function (key, value) {
         $("#" + key).prop("checked", value);
       });
+
+
+      //circle
+      function createFields() {
+    $('.field').remove();
+    var container = $('#container');
+    for(var i = 0; i < +$('input:text').val(); i++) {
+        $('<div/>', {
+            'class': 'field',
+            'text': i + 1
+        }).appendTo(container);
+    }
+}
+
+function distributeFields() {
+    var radius =  $('#container').width() / 2.5
+    var fields = $('.field'), container = $('#container'),
+        width = container.width(), height = container.height(),
+        angle = 0, step = (2*Math.PI) / fields.length;
+    fields.each(function() {
+        var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
+        var y = Math.round(height/2 + radius/1.5 * Math.sin(angle) - $(this).height()/2);
+        if(window.console) {
+            // console.log($(this).text(), x, y);
+        }
+        $(this).css({
+            left: x + 'px',
+            top: y + 'px'
+        });
+        angle += step;
+    });
+}
+$( window ).resize(function() {
+    //createFields();
+    distributeFields();
+});
+
+//createFields();
+distributeFields();
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
     </script>
   </body>
 </html>

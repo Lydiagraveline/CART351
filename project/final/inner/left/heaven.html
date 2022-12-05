@@ -7,16 +7,29 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <h2>Heaven</h2>
     <p>  <a href="paradise.html">menu</a> </p>
-    <p>Representing the heavenly realm</p>
-
+    <!-- checkpoint -->
     <div id="checkbox-container">
       <div>
         <label for="option">Checkpoint</label>
         <input type="checkbox" id="option" />
       </div>
     </div>
+    <div style="position: relative; left: 0; top: 0;">
+      <img src="images/fountain.png" width="100%" style="position: relative; left: 0; top: 0;" alt="fountain" />
+
+      <!-- clickable orb, takes you to the "descent" section -->
+      <a href="descent.html#orb1">
+      <img id="orb" class="orb zoom heavenOrb" src="images/blackOrb.png" alt="path" />
+       </a>
+    </div> 
+
+<!-- 
+    <h2>Heaven</h2>
+
+    <p>Representing the heavenly realm</p>
+
+
 
     <div class="row" style="background-color: #add8e6;">
       <div class="column quarter">
@@ -56,8 +69,7 @@
       </div>
     </div>
     <div class="row" style="background-color: #ffb6c1;" id="fountain">
-      <!-- <div class="column half"> -->
-        <!-- <div class="row"> -->
+
 
                   <div class="column" style="width: 60%">
                     <p>
@@ -89,41 +101,19 @@
         </div>
         </div>
 
-        <!-- <div class="half">
-        </div> -->
-
-        <!-- <div class="row"> -->
-        <!-- <div class="column quarter">
-            <img src="images/throat.png" alt="throat" width="100%" />
-          </div>
-          <div class="column half">
-            test
-          </div>
-          <div class="column quarter">
-          <img src="images/spine.png" alt="spine" width="100%" />
-          </div>
-          <div class="column half">
-            test
-          </div>
-          <div class="column quarter">
-          <img src="images/root.png" alt="root" width="100%" />
-          </div>
-          <div class="column half">
-            test
-          </div> -->
-        <!-- </div> -->
+  
       </div>
-    </div>
+    </div> -->
 
     <!-- <img src="images/rabbit.png" width="600px" alt="rabbit" /> <br /> -->
-    <a href="descent.html">
+    <!-- <a href="descent.html">
       <img
         src="images/fountainTop.png"
         height="500px"
         alt="fountain"
         class="clickable"
 
-    /></a>
+    /></a> -->
 
     <script>
       const heavenCheckBox = localStorage.getItem("heaven-check");

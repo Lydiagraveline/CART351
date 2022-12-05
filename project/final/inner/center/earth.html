@@ -3,20 +3,70 @@
     <head>
       <meta charset="UTF-8" />
       <title>Earth</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        
+      </script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-      <h2>Earth (the allegory of sensory and sensual life)</h2>
-      <p>  <a href="center.html">menu</a> </p>
-      <img src="images/earth.png" width="100%" alt="earth" /> <br>
-      <div style="margin:25px">
+      
       <div id="checkbox-container">
+
+        <p>  <a href="center.html">menu</a> </p>
         <div>
           <label for="option">Checkpoint</label>
           <input type="checkbox" id="option" />
         </div>
       </div>
+
+
+      <img src="images/deadFish.jpeg" width="300px" alt="deadFish" /> 
+      <img src="images/23.gif" width="50px" alt="gif" />
+      <img src="images/12.gif" width="50px" alt="gif" />
+      <img src="images/8.gif" width="50px" alt="gif" />
+      <img src="images/9.gif" width="50px" alt="gif" />
+      <img src="images/10.gif" width="50px" alt="gif" />
+      <img src="images/1.gif" width="50px" alt="gif" />
+      <img src="images/2.gif" width="50px" alt="gif" />
+      <img src="images/seagulll.gif" width="50px" alt="gif" />
+
+
+      <img src="images/anibf.gif" width="500px" alt="gif" />
+      <img src="images/copcar.gif" width="400px" alt="gif" />
+      <img src="images/cybermanorpriest.png" width="400px" alt="gif" />
+      <img src="images/water1m.gif" height="300px" alt="gif" />
+
+      <!-- <ul class="ad"> 
+        <li><img src="images/ad/1.jpeg"></li>
+        <li><img src="images/ad/2.jpeg"></li>
+      </ul> -->
+      <!-- <div class="wrapper"> -->
+        <ul id="slider">
+          <li><img src="images/ad/1.jpeg"></li>
+          <li><img src="images/ad/2.jpeg"></li>
+          <li><img src="images/ad/3.jpeg"></li>
+          <li><img src="images/ad/4.jpeg"></li>
+          <li><img src="images/ad/5.jpeg"></li>
+          <li><img src="images/ad/6.jpeg"></li>
+          <li><img src="images/ad/7.jpeg"></li>
+          <li><img src="images/ad/8.jpeg"></li>
+          <li><img src="images/ad/9.jpeg"></li>
+          <li><img src="images/ad/10.jpeg"></li>
+          <li><img src="images/ad/11.jpeg"></li>
+          <li><img src="images/ad/13.jpeg"></li>
+          <li><img src="images/ad/14.jpeg"></li>
+          <li><img src="images/ad/15.jpeg"></li>
+          <li><img src="images/ad/16.jpeg"></li>
+          <li><img src="images/ad/18.jpeg"></li>
+          <li><img src="images/ad/19.jpeg"></li>
+        </ul> 
+      <!-- </div> -->
+
+      <!-- <h2>Earth (the allegory of sensory and sensual life)</h2>
+      
+      <img src="images/earth.png" width="100%" alt="earth" /> <br>
+      <div style="margin:25px">
+
       <br>
 
       <p>realm of the human world, where sensual preoccupation predominates above all other activities </p>
@@ -32,7 +82,7 @@
     <img src="images/head.png" height="300px" alt="blueberry head" />
     <img src="images/owl.png" height="300px" alt="owl" />
     <img src="images/vessel.png" height="300px" alt="vessel" />
-    </div>
+    </div> -->
       <script>
         const earthCheckBox = localStorage.getItem("earth-check");
         // const earthChecked = localStorage.getItem("earthChecked");
@@ -52,6 +102,21 @@
         $.each(earthValues, function (key, value) {
           $("#" + key).prop("checked", value);
         });
+
+        $(document).ready(function(){
+
+$('#slider>li:gt(0)').hide();
+  setInterval(function() {
+    $('#slider > li:first')
+      .fadeOut(1)
+      .next()
+      .fadeIn(1)
+      .end()
+      .appendTo('#slider');
+}, 2000);
+
+});
+
       </script>
     </body>
   </html>
