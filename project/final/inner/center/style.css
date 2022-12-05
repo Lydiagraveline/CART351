@@ -61,7 +61,7 @@ body {
 div {
   box-sizing: border-box;
   /* display: inline-block; */
-  /* border: 3px solid green; */
+  border: 1px solid green;
   /* width:100%; */
 
 }
@@ -182,4 +182,23 @@ blink {
   background-position: -962px -516px;
   width: 121px;
   height: 87px;
+}
+
+.form{
+  width: 75%;
+  margin:auto;
+  margin-top: 50px;;
+  padding: 10px;
+  background-color:lightpink;
+}
+
+#form textarea{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.fakeLink{
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
 }
