@@ -1,15 +1,16 @@
 
-    // $(document).ready(function () {
+    $(document).ready(function () {
 
-    //   $("#newPanel").click(function(){
-    //     localStorage.clear();
-    //   })
-    
-    //     let heaven = localStorage.getItem("heaven")
-    //     console.log(heaven);
-    //    if (heaven == true){
-    //     $("#newPanel").show();
-    //     console.log("new panel");
-    //    }
 
-    // });
+
+    });
+
+    //Clear local storage and refresh page when user pressed shift + a 
+    $(document).bind('keypress', function(event) {
+        if( event.which === 65 && event.shiftKey ) {
+            console.log('you pressed SHIFT+A');
+            console.log('local storage cleared');
+            localStorage.clear();
+            location.reload();
+        }
+    });
