@@ -104,10 +104,14 @@
         submitForm("#saveForm");
         submitForm("#forgiveForm");
         submitForm("#forgetForm");
-
-        
-
-      }) //document ready
+      }); //document ready
+      
+      // DOCUMENT ON CLICK
+      $(document).on('click','body *',function () {
+        // user has interacted with page
+        localStorage.setItem("heavenCenter", "true");
+        console.log(localStorage.heavenCenter);
+      });     
 
       //submit a form when the button is pressed
       function submitForm(form){
@@ -153,23 +157,6 @@
         }) //ajax
         //window.open("submissions.php");
       }
-
-      const heavenCheckBox = localStorage.getItem("heaven-check");
-
-      var heavenValues = JSON.parse(localStorage.getItem("heavenValues")) || {},
-        $checkboxes = $("#checkbox-container :checkbox");
-
-      $checkboxes.on("change", function () {
-        $checkboxes.each(function () {
-          heavenValues[this.id] = this.checked;
-        });
-        localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
-      });
-
-      // On page load
-      $.each(heavenValues, function (key, value) {
-        $("#" + key).prop("checked", value);
-      });
     </script>
   </body>
 </html>

@@ -1,11 +1,15 @@
-// const form = document.getElementById('form');
-// const firstName = document.getElementById('firstName');
-// const lastName = document.getElementById('lastName');
-// 
-// form.addEventListener('submit', function(e) {
-//   e.preventDefault();
-//   const firstNameValue = firstName.value
-//   const lastNameValue =  lastName.value
-//
-//   localStorage.setItem('myObject', JSON.stringify([firstNameValue, lastNameValue]))
-// });
+
+    // $(document).ready(function () {
+
+    //   $("#newPanel").click(function(){
+    //     localStorage.clear();
+    //   })
+    
+    //     let heaven = localStorage.getItem("heaven")
+    //     console.log(heaven);
+    //    if (heaven == true){
+    //     $("#newPanel").show();
+    //     console.log("new panel");
+    //    }
+
+    // });

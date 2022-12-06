@@ -76,26 +76,35 @@
 
       <script>
         // const heavenCheckBox = localStorage.getItem('heaven-check');
-        const heavenVal = localStorage.getItem("heavenValues");
-        const circuitVal = localStorage.getItem("circuitValues");
-        const earthVal = localStorage.getItem("earthValues");
 
         $(document).ready(function () {
-           $("#newPanel").hide();
-          let heaven = JSON.parse(heavenVal);
-          let circuit = JSON.parse(circuitVal);
-          let earth = JSON.parse(earthVal);
+          handlePanelOpen()
+        }); //document ready
 
-          $("#newPanel").click(function(){
-            localStorage.clear();
-          }) 
+        function handlePanelOpen(){
+        let heaven = localStorage.getItem("heavenCenter");
+        let circuit = localStorage.getItem("circuit");
+        let earth = localStorage.getItem("earthCenter");
 
+        console.log("user has...")
+        console.log("been to heaven = " + heaven);
+        console.log("descended = " + circuit);
+        console.log("been to earth = " + earth);
 
-          //if all sections have been explored, open a new section
-          if (heaven.option === true && circuit.option === true && earth.option === true) {
-             $("#newPanel").show();
-          }
-        });
+        if (heaven === "true" && circuit === "true" && earth === "true"){
+          $("#newPanel").show();
+          console.log("open panel");
+        } 
+       else if (heaven === null || circuit === null || earth === null){
+          console.log("close panel");
+          $("#newPanel").hide();
+        }
+
+       $("#newPanel").click(function(){
+          // localStorage.clear();
+          // $("#newPanel").hide();
+        })
+       } //handlePanelOpen
       </script>
     </body>
   </html>

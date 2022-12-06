@@ -32,45 +32,52 @@
         class="panel new"
         onclick="location.href='../center/center.html';"
       >
-        <p>Lose your inhibitions</p>
+      <div class="wrapper"><p>Lose your inhibitions</p></div>
+      
       </div>
     </div>
 
     <script>
-      // const heavenCheckBox = localStorage.getItem('heaven-check');
-      const heavenVal = localStorage.getItem("heavenValues");
-      const descentVal = localStorage.getItem("descentValues");
-      const earthVal = localStorage.getItem("earthValues");
+      // // const heavenCheckBox = localStorage.getItem('heaven-check');
+      // const heavenVal = localStorage.getItem("heavenValues");
+      // const descentVal = localStorage.getItem("descentValues");
+      // const earthVal = localStorage.getItem("earthValues");
 
-      // document.getElementById("heaven-check").textContent = heavenVal;
-      // document.getElementById("descent-check").textContent = descentVal;
-      // document.getElementById("earth-check").textContent = earthVal;
+      // // document.getElementById("heaven-check").textContent = heavenVal;
+      // // document.getElementById("descent-check").textContent = descentVal;
+      // // document.getElementById("earth-check").textContent = earthVal;
 
       $(document).ready(function () {
-        // console.log("heaven: " + heavenVal)
-        // console.log("descent: " + descentVal)
-        // console.log("earth: " + earthVal)
 
-        $("#newPanel").click(function(){
-          localStorage.clear();
-        })
+        handlePanelOpen();
 
-        $("#newPanel").hide();
-        let heaven = JSON.parse(heavenVal);
-        let descent = JSON.parse(descentVal);
-        let earth = JSON.parse(earthVal);
+       }); //document ready
 
-        $("#bottom").css("background-image", "images/pond.png");
-        if(earth.option === true){
-             $("#bottom").css("background-image", "images/pond.png");
-            console.log("bottom=true")
-          }
+      //check if user hads been to all 3 section, if so, open the new panel
+       function handlePanelOpen(){
+        let heaven = localStorage.getItem("heavenLeft");
+        let descent = localStorage.getItem("descent");
+        let earth = localStorage.getItem("earthLeft");
 
+        console.log("user has...")
+        console.log("been to heaven = " + heaven);
+        console.log("descended = " + descent);
+        console.log("been to earth = " + earth);
 
-        if (heaven.option === true && descent.option === true && earth.option === true) {
+        if (heaven === "true" && descent === "true" && earth === "true"){
           $("#newPanel").show();
+          console.log("open panel");
+        } 
+       else if (heaven === null || descent === null || earth === null){
+          console.log("close panel");
+          $("#newPanel").hide();
         }
-      });
+
+       $("#newPanel").click(function(){
+          // localStorage.clear();
+          // $("#newPanel").hide();
+        })
+       } //handlePanelOpen
     </script>
   </body>
 </html>

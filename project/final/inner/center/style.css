@@ -128,7 +128,7 @@ div:hover {
   outline: none;
 }
 
-#slider{
+#ad{
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
@@ -141,7 +141,7 @@ div:hover {
   /* display: inline-block; */
   }
 
-  #slider>li{
+  #ad>li{
     /* position:absolute; */
     list-style:none;
     
@@ -151,7 +151,7 @@ div:hover {
     bottom:5px; */
     }
 
-    #slider>li>img{
+    #ad>li>img{
       width: 100%;
     }
 

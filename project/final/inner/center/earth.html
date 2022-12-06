@@ -3,14 +3,14 @@
     <head>
       <meta charset="UTF-8" />
       <title>Earth</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-        
-      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="main.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body style="background-image: url('images/background.jpg'); background-size: cover; background-repeat: no-repeat;">
     <!-- <div style="width:100%; height:100%; background-image: url('images/background.jpg'); background-size: cover;"> -->
 
+      <!-- user names, randomly positioned -->
       <p style="color:red;"id="mark1" class="mark">I was here</p>
       <p style="color:red;"id="mark2" class="mark">I was here</p>
       <p style="color:red;"id="mark3" class="mark">I was here</p>
@@ -18,15 +18,7 @@
       <p style="color:red;"id="mark5" class="mark">I was here</p>
       <p style="color:red;"id="mark6" class="mark">I was here</p>
       <p id="mark7" class="mark" onclick="location.href='heaven.html';">I wasn't here</p>
-      
-      <div id="checkbox-container">
 
-        <!-- <p>  <a href="center.html">menu</a> </p>
-        <div>
-          <label for="option">Checkpoint</label>
-          <input type="checkbox" id="option" />
-        </div>
-      </div> -->
       <!-- <img src="images/deadFish.jpeg" width="300px" alt="deadFish" /> 
       <img src="images/23.gif" width="50px" alt="gif" />
       <img src="images/12.gif" width="50px" alt="gif" />
@@ -43,12 +35,7 @@
       <img src="images/cybermanorpriest.png" width="400px" alt="gif" />
       <img src="images/water1m.gif" height="300px" alt="gif" /> -->
 
-      <!-- <ul class="ad"> 
-        <li><img src="images/ad/1.jpeg"></li>
-        <li><img src="images/ad/2.jpeg"></li>
-      </ul> -->
-      <!-- <div class="wrapper"> -->
-        <ul id="slider">
+        <ul id="ad">
           <li><img src="images/ad/1.jpeg"></li>
           <li><img src="images/ad/2.jpeg"></li>
           <li><img src="images/ad/3.jpeg"></li>
@@ -67,79 +54,66 @@
           <li><img src="images/ad/18.jpeg"></li>
           <li><img src="images/ad/19.jpeg"></li>
         </ul> 
-      <!-- </div> -->
-
-    <!-- </div> -->
       <script>
-        const earthCheckBox = localStorage.getItem("earth-check");
-        // const earthChecked = localStorage.getItem("earthChecked");
+      
+      $(document).ready(function(){
+        readNames();
+        positionNames();
+        displayAd();
+      }); //DOCUMENT READY
 
-        var earthValues =
-            JSON.parse(localStorage.getItem("earthValues")) || {},
-          $checkboxes = $("#checkbox-container :checkbox");
+      // DOCUMENT ON CLICK
+      $(document).on('click','body *',function () {
+        // user has interacted with page
+        localStorage.setItem("earthCenter", "true");
+        console.log(localStorage.earthCenter);
+      });    
 
-        $checkboxes.on("change", function () {
-          $checkboxes.each(function () {
-            earthValues[this.id] = this.checked;
-          });
-          localStorage.setItem("earthValues", JSON.stringify(earthValues));
+      //read the text file 
+      function readNames(){
+        
+        $.get('php/save.txt',
+        function(data) {
+        let splitArray = data.split('\n');
+
+        //remove any rogues
+        let filtered = splitArray.filter(function(item){ return item!=="" });
+        displayNames(filtered);
+        },
+        'text');
+      };
+
+      //display the most recent names
+      function displayNames(parsedJSONArray){
+        $("#mark1").text(parsedJSONArray.at(-1).split(":")[1] + " was here"); //most recent submission
+        $("#mark2").text(parsedJSONArray.at(-2).split(":")[1] + " was here"); 
+        $("#mark3").text(parsedJSONArray.at(-3).split(":")[1] + " was here"); 
+        $("#mark4").text(parsedJSONArray.at(-4).split(":")[1] + " was here"); 
+        $("#mark5").text(parsedJSONArray.at(-5).split(":")[1] + " was here"); 
+        $("#mark6").text(parsedJSONArray.at(-6).split(":")[1] + " was here"); 
+        $("#mark7").text(parsedJSONArray.at(-7).split(":")[1] + " wasn't here"); //7th most recent submission
+      };
+
+      //Randomly position the names
+      function positionNames(){
+        //rrandom position
+        $('.mark').each(function(){
+		     $(this).css({"left": Math.random() * window.outerWidth , "top": Math.random() * window.outerHeight})
         });
 
-        // On page load
-        $.each(earthValues, function (key, value) {
-          $("#" + key).prop("checked", value);
-        });
+      }; //position names
 
-$(document).ready(function(){
-
-  readNames();
-
-  //rrandom position
-  $('.mark').each(function(){
-		$(this).css({"left": Math.random() * window.outerWidth , "top": Math.random() * window.outerHeight})
-});
-$('#slider>li:gt(0)').hide();
-  setInterval(function() {
-    $('#slider > li:first')
-      .fadeOut(1)
-      .next()
-      .fadeIn(1)
-      .end()
-      .appendTo('#slider');
-}, 2000);
-
-});
-
-//read the text file 
-function readNames(){
-  $.get('php/save.txt',
-  function(data) {
-  let splitArray = data.split('\n');
-
-  //remove any rogues
-  let filtered = splitArray.filter(
-  function(item){
-    return item!==""
-  }
-);
-  console.log(filtered);
-   displayNames(filtered);
-  },
-  'text');
-        // })//document readt
-}
-
-//display the most recent names
-function displayNames(parsedJSONArray){
-  $("#mark1").text(parsedJSONArray.at(-1).split(":")[1] + " was here"); //most recent submission
-  $("#mark2").text(parsedJSONArray.at(-2).split(":")[1] + " was here"); 
-  $("#mark3").text(parsedJSONArray.at(-3).split(":")[1] + " was here"); 
-  $("#mark4").text(parsedJSONArray.at(-4).split(":")[1] + " was here"); 
-  $("#mark5").text(parsedJSONArray.at(-5).split(":")[1] + " was here"); 
-  $("#mark6").text(parsedJSONArray.at(-6).split(":")[1] + " was here"); 
-  $("#mark7").text(parsedJSONArray.at(-7).split(":")[1] + " wasn't here"); //7th most recent submission
-}
-
+      function displayAd(){
+        $('#ad>li:gt(0)').hide();
+        setInterval(function() {
+          $('#ad > li:first')
+          .fadeOut(1)
+          .next()
+          .fadeIn(1)
+          .end()
+          .appendTo('#ad');
+         }, 2000);
+      }; //displayAd
       </script>
     </body>
   </html>

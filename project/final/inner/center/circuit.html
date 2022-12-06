@@ -5,6 +5,7 @@
     <title>circuit</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="main.js"></script>
   </head>
   <body>
   <div id="container">
@@ -105,88 +106,45 @@
 
  
     <script>
-          function addToCart()
-{
-    let value = localStorage.cart;
-    value = isNaN(value) ? 0 : value;
-    value++;
-    let items="<p>test</p>";
-    if (value <=1){
-      $("#cart").text(value+" item");
-    } else {
-      $("#cart").text(value+" items");
-    }
-    localStorage.setItem("cart", value);
-    // console.log(localStorage.cart)
-    
-}
-
-function emptyCart(){
-  localStorage.setItem("cart", -1);
-  addToCart();
-}
-
-       $(document).ready (function() {
+      $(document).ready (function() {
         //display cart items
-        let value = localStorage.cart;
-        let items="<p>test</p>";
-    if (value <=1){
-      $("#cart").text(value+" item");
-    } else {
-      $("#cart").text(value+" items");
-    }
-       })
+        handleShoppingCart();
+      }); //DOCUMENT READY
 
+      // DOCUMENT ON CLICK
+      $(document).on('click','body *',function () {
+        // user has interacted with page
+        localStorage.setItem("circuit", "true");
+        console.log(localStorage.circuit);
+      });     
 
-      const circuitCheckBox = localStorage.getItem("circuit-check");
-
-      var circuitValues =
-          JSON.parse(localStorage.getItem("circuitValues")) || {},
-        $checkboxes = $("#checkbox-container :checkbox");
-
-      $checkboxes.on("change", function () {
-        $checkboxes.each(function () {
-          circuitValues[this.id] = this.checked;
-        });
-        localStorage.setItem("circuitValues", JSON.stringify(circuitValues));
-      });
-
-      // On page load
-      $.each(circuitValues, function (key, value) {
-        $("#" + key).prop("checked", value);
-      });
-
-
-      //circle
-      function createFields() {
-    $('.field').remove();
-    var container = $('#container');
-    for(var i = 0; i < +$('input:text').val(); i++) {
+    //circle
+    function createFields() {
+      $('.field').remove();
+      var container = $('#container');
+      for(var i = 0; i < +$('input:text').val(); i++) {
         $('<div/>', {
             'class': 'field',
             'text': i + 1
         }).appendTo(container);
-    }
-}
+      }
+    }//creatFields
 
-function distributeFields() {
-    var radius =  $('#container').width() / 2.5
-    var fields = $('.field'), container = $('#container'),
-        width = container.width(), height = container.height(),
-        angle = 0, step = (2*Math.PI) / fields.length;
-    fields.each(function() {
+    function distributeFields() {
+      var radius =  $('#container').width() / 2.5
+      var fields = $('.field'), container = $('#container'),
+      width = container.width(), height = container.height(),
+      angle = 0, step = (2*Math.PI) / fields.length;
+      fields.each(function() {
         var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
         var y = Math.round(height/2 + radius/1.5 * Math.sin(angle) - $(this).height()/2);
-        if(window.console) {
-            // console.log($(this).text(), x, y);
-        }
         $(this).css({
             left: x + 'px',
             top: y + 'px'
         });
         angle += step;
-    });
-}
+      });
+    }
 $( window ).resize(function() {
     //createFields();
     distributeFields();
@@ -203,7 +161,21 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-
+function addToCart()
+{
+    let value = localStorage.cart;
+    value = isNaN(value) ? 0 : value;
+    value++;
+    let items="<p>test</p>";
+    if (value <=1){
+      $("#cart").text(value+" item");
+    } else {
+      $("#cart").text(value+" items");
+    }
+    localStorage.setItem("cart", value);
+    // console.log(localStorage.cart)
+    
+}
     </script>
   </body>
 </html>

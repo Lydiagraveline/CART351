@@ -4,6 +4,7 @@
       <meta charset="UTF-8" />
       <title>descent</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="main.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
@@ -109,19 +110,26 @@
       </p> -->
 
       <script>
-         $(document).ready (function() {
+      $(document).ready (function() {
 
-          $("#form").submit(function(event){
-            event.preventDefault();
-             //turn the data into an array
-            let data =$('#form').serializeArray();
-            console.log("button clicked");
-            for(let valuePairs of data.entries()) {
-             console.log(valuePairs[0]+ ', ' + valuePairs[1]);
-             }
+      }) //document ready
+      
+      // DOCUMENT ON CLICK
+      $(document).on('click','body *',function () {
+        // user has interacted with page
+        localStorage.setItem("descent", "true");
+        console.log(localStorage.descent);
+      })     
 
-                     //request
-        $.ajax({
+      //submit the form data 
+      function submitData(){
+        $("#form").submit(function(event){
+          event.preventDefault();
+          //turn the data into an array
+          let data =$('#form').serializeArray();
+
+          //request
+          $.ajax({
             type:"GET",
             url: "php/submit.php",
             data: data,
@@ -135,32 +143,10 @@
             error: function(){
                 console.log("error occured");
             }//error
-        }) //ajax
-        //window.open("submissions.php");
-    })//submit
-          })
-
-         
-
-
-      const descentCheckBox = localStorage.getItem("descent-check");
-
-      var descentValues =
-          JSON.parse(localStorage.getItem("descentValues")) || {},
-        $checkboxes = $("#checkbox-container :checkbox");
-
-      $checkboxes.on("change", function () {
-        $checkboxes.each(function () {
-          descentValues[this.id] = this.checked;
-        });
-        localStorage.setItem("descentValues", JSON.stringify(descentValues));
-      });
-
-      // On page load
-      $.each(descentValues, function (key, value) {
-        $("#" + key).prop("checked", value);
-      });
-
+          }) //ajax
+        
+        })//submit
+        }
       </script>
     </body>
 

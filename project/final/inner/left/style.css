@@ -1,11 +1,12 @@
 
 html,
 body {
-  --outerPanelColor: 	#251e19;
-  --goldColor: 	#c3890b;
+  /* --outerPanelColor: 	#251e19;
+  --goldColor: 	#c3890b; */
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: none;
   /* padding: 10px; */
 }
 
@@ -78,8 +79,17 @@ tr {
 .new {
   width: 50%;
   height: 100%;
-  background-color: grey;
+  /* background-color: grey; */
   /* display: none; */
+}
+
+#newPanel .wrapper {
+  color: white;
+  text-align: center;
+  padding-top: 60%;
+  background-position: center;
+  background-size: 150% 150%;
+  background-image: url('images/center.png');
 }
 
 /* background image wrapper */
@@ -108,7 +118,7 @@ tr {
 }
 
 #middle {
-  height: 15%;
+  height: 25%;
   overflow: hidden;
   /* background-position: bottom; */
   /* background-image: url('images/fountainBottom.png'); */
@@ -117,14 +127,17 @@ tr {
   /* background-size: 50%; */
 }
 #middle .wrapper{
+  background-position: top;
+  background-size: 150% 200%;
   background-image: url('images/fountainBottom.png');
 }
 #bottom {
-  height: 70%;
+  height: 60%;
   overflow: hidden;
 }
 
 #bottom .wrapper{
+  background-position: 1% 5%;
   background-image: url('images/pond.png');
 }
 
