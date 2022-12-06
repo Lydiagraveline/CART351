@@ -128,9 +128,14 @@ div:hover {
   outline: none;
 }
 
-#ad{
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
+#adult {
+  width: 200px;
+}
+
+#church{
+  /* position: -webkit-sticky;  */
+  /* Safari */
+  /* position: sticky; */
   top: 0;
   margin:50px auto;
   width: 50%;
@@ -141,7 +146,7 @@ div:hover {
   /* display: inline-block; */
   }
 
-  #ad>li{
+  .ad>li{
     /* position:absolute; */
     list-style:none;
     
@@ -151,7 +156,7 @@ div:hover {
     bottom:5px; */
     }
 
-    #ad>li>img{
+    .ad>li>img{
       width: 100%;
     }
 

@@ -4,6 +4,7 @@
       <meta charset="UTF-8" />
       <title>Earth</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="main.js"></script>
     
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
@@ -38,32 +39,41 @@
       <img src="images/copcar.gif" width="400px" alt="gif" />
       <img src="images/cybermanorpriest.png" width="400px" alt="gif" />
       <img src="images/water1m.gif" height="300px" alt="gif" /> -->
+      <a href="../left/earth.html"><ul class="ad clickable" id="adult">
+        <li><img src="images/adultAd/adult.gif"></li>
+        <li><img src="images/adultAd/alt.gif"></li>
+        <li><img src="images/adultAd/dating.gif"></li>
+      </ul> </a>
 
-        <ul id="ad">
-          <li><img src="images/ad/1.jpeg"></li>
-          <li><img src="images/ad/2.jpeg"></li>
-          <li><img src="images/ad/3.jpeg"></li>
-          <li><img src="images/ad/4.jpeg"></li>
-          <li><img src="images/ad/5.jpeg"></li>
-          <li><img src="images/ad/6.jpeg"></li>
-          <li><img src="images/ad/7.jpeg"></li>
-          <li><img src="images/ad/8.jpeg"></li>
-          <li><img src="images/ad/9.jpeg"></li>
-          <li><img src="images/ad/10.jpeg"></li>
-          <li><img src="images/ad/11.jpeg"></li>
-          <li><img src="images/ad/13.jpeg"></li>
-          <li><img src="images/ad/14.jpeg"></li>
-          <li><img src="images/ad/15.jpeg"></li>
-          <li><img src="images/ad/16.jpeg"></li>
-          <li><img src="images/ad/18.jpeg"></li>
-          <li><img src="images/ad/19.jpeg"></li>
+        <ul class="ad" id="church">
+          <li><img src="images/onlineChurch/1.jpeg"></li>
+          <li><img src="images/onlineChurch/2.jpeg"></li>
+          <li><img src="images/onlineChurch/3.jpeg"></li>
+          <li><img src="images/onlineChurch/4.jpeg"></li>
+          <li><img src="images/onlineChurch/5.jpeg"></li>
+          <li><img src="images/onlineChurch/6.jpeg"></li>
+          <li><img src="images/onlineChurch/7.jpeg"></li>
+          <li><img src="images/onlineChurch/8.jpeg"></li>
+          <li><img src="images/onlineChurch/9.jpeg"></li>
+          <li><img src="images/onlineChurch/10.jpeg"></li>
+          <li><img src="images/onlineChurch/11.jpeg"></li>
+          <li><img src="images/onlineChurch/13.jpeg"></li>
+          <li><img src="images/onlineChurch/14.jpeg"></li>
+          <li><img src="images/onlineChurch/15.jpeg"></li>
+          <li><img src="images/onlineChurch/16.jpeg"></li>
+          <li><img src="images/onlineChurch/18.jpeg"></li>
+          <li><img src="images/onlineChurch/19.jpeg"></li>
         </ul> 
+
+
+
       <script>
       
       $(document).ready(function(){
         readNames();
         positionNames();
-        displayAd();
+        displayAd('#adult');
+        displayAd('#church');
       }); //DOCUMENT READY
 
       // DOCUMENT ON CLICK
@@ -107,15 +117,15 @@
 
       }; //position names
 
-      function displayAd(){
-        $('#ad>li:gt(0)').hide();
+      function displayAd(ad){
+        $(ad+' >li:gt(0)').hide();
         setInterval(function() {
-          $('#ad > li:first')
+          $(ad+' > li:first')
           .fadeOut(1)
           .next()
           .fadeIn(1)
           .end()
-          .appendTo('#ad');
+          .appendTo(ad);
          }, 2000);
       }; //displayAd
       </script>

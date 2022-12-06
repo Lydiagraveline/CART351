@@ -17,7 +17,7 @@ div {
   padding: 0;
   box-sizing: border-box;
   display: inline-block;
-  /* border: 3px solid green; */
+  border: 3px solid green;
   /* background-color: var(--outerPanelColor) */
 }
 
@@ -141,13 +141,13 @@ tr {
   background-image: url('images/pond.png');
 }
 
-
-
-
-.clickable {
-  border:3px solid red;
+.clickable{
+  transition: transform 0.5s;
 }
 
+.clickable:hover {
+  transform: scale(1.05);
+}
 .column {
   float: left;
   padding: 10px;
@@ -213,4 +213,11 @@ tr {
 #checkbox-container{
   display: none;
 }
+
+
+.link{
+  display:none;
+}
+
+
 
