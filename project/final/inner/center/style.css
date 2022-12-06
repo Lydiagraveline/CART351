@@ -191,6 +191,13 @@ div:hover {
   background-position: 1% 70%;
 }
 
+.clickable{
+  transition: transform 0.5s;
+}
+
+.clickable:hover {
+  transform: scale(1.05);
+}
 
 blink {
   animation: 2s linear infinite blink_effect;

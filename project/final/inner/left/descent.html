@@ -40,10 +40,14 @@
                                      ~~
     
           </pre>
+
         </div>
 
+        <!-- white goat, leads to center panel circuit -->
+        <a class="link" style="float:right; margin-right:200px; display:none;" href="../center/circuit.html"><img src="../center/images/whiteGoat.jpeg" width="250px" alt="white goat" /> </a>
 
       </div> 
+ 
       <p>  <a href="paradise.html">menu</a> </p>
       <!-- checkpoint -->
       <div id="checkbox-container">
@@ -112,13 +116,19 @@
       <script>
       $(document).ready (function() {
 
+        //if user has been to the circuit, display link back
+        let circuit = localStorage.getItem("circuit");
+        if (circuit === "true"){
+          $(".link").show();
+        }
+
       }) //document ready
       
       // DOCUMENT ON CLICK
       $(document).on('click','body *',function () {
         // user has interacted with page
         localStorage.setItem("descent", "true");
-        console.log(localStorage.descent);
+        // console.log(localStorage.descent);
       })     
 
       //submit the form data 
