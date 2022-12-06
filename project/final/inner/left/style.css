@@ -82,17 +82,53 @@ tr {
   /* display: none; */
 }
 
+/* background image wrapper */
+.wrapper{
+  width: 100%;
+  height:100%;
+  transition: transform 0.5s;
+}
+
+.wrapper:hover{
+  transform: scale(1.05);
+}
+
 #top {
   height: 15%;
+  overflow: hidden;
+  /* background-image: url('images/fountain.png');
+  background-position:1% 1%;
+  background-size: 80%; */
 }
+
+#top .wrapper{
+  background-image: url('images/fountain.png');
+  background-position:1% 1%;
+  background-size: 80%;
+}
+
 #middle {
   height: 15%;
-  background-position: center;
+  overflow: hidden;
+  /* background-position: bottom; */
+  /* background-image: url('images/fountainBottom.png'); */
+  /* background-size: cover; */
+  /* background-position:1% 90%; */
+  /* background-size: 50%; */
+}
+#middle .wrapper{
+  background-image: url('images/fountainBottom.png');
 }
 #bottom {
   height: 70%;
-  background-position: bottom;
+  overflow: hidden;
 }
+
+#bottom .wrapper{
+  background-image: url('images/pond.png');
+}
+
+
 
 
 .clickable {

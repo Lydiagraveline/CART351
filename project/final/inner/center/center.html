@@ -50,12 +50,19 @@
     <body>
       <div class="container">
         <div class="panel-container">
-      <div class="panel" id="top" onclick="location.href='heaven.html';"> Heaven and earth into the earthly sphere</div>
+      <div class="panel" id="top" onclick="location.href='heaven.html';"> 
+        <!-- Heaven and earth into the earthly sphere -->
+        <div class="wrapper"></div>
+      </div>
       <div class="panel" id="middle" onclick="location.href='circuit.html';">
         <!-- <img src="images/circle.png" width="100%" alt="tantric circle" /> -->
-        
-        The tantric circle (the wheel of life)</div>
-      <div class="panel" id="bottom" onclick="location.href='earth.html';">Earth (the allegory of sensory and sensual life)</div>
+        <div class="wrapper"></div>
+        <!-- The tantric circle (the wheel of life) -->
+      </div>
+      <div class="panel" id="bottom" onclick="location.href='earth.html';">
+        <!-- Earth (the allegory of sensory and sensual life) -->
+        <div class="wrapper"></div>
+      </div>
       </div>
       <div
         id="newPanel"
@@ -81,8 +88,10 @@
 
           $("#newPanel").click(function(){
             localStorage.clear();
-          })
+          }) 
 
+
+          //if all sections have been explored, open a new section
           if (heaven.option === true && circuit.option === true && earth.option === true) {
              $("#newPanel").show();
           }

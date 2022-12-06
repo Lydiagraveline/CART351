@@ -8,19 +8,26 @@
       </script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-    <body>
+    <body style="background-image: url('images/background.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <!-- <div style="width:100%; height:100%; background-image: url('images/background.jpg'); background-size: cover;"> -->
+
+      <p style="color:red;"id="mark1" class="mark">I was here</p>
+      <p style="color:red;"id="mark2" class="mark">I was here</p>
+      <p style="color:red;"id="mark3" class="mark">I was here</p>
+      <p style="color:red;"id="mark4" class="mark">I was here</p>
+      <p style="color:red;"id="mark5" class="mark">I was here</p>
+      <p style="color:red;"id="mark6" class="mark">I was here</p>
+      <p id="mark7" class="mark" onclick="location.href='heaven.html';">I wasn't here</p>
       
       <div id="checkbox-container">
 
-        <p>  <a href="center.html">menu</a> </p>
+        <!-- <p>  <a href="center.html">menu</a> </p>
         <div>
           <label for="option">Checkpoint</label>
           <input type="checkbox" id="option" />
         </div>
-      </div>
-
-
-      <img src="images/deadFish.jpeg" width="300px" alt="deadFish" /> 
+      </div> -->
+      <!-- <img src="images/deadFish.jpeg" width="300px" alt="deadFish" /> 
       <img src="images/23.gif" width="50px" alt="gif" />
       <img src="images/12.gif" width="50px" alt="gif" />
       <img src="images/8.gif" width="50px" alt="gif" />
@@ -34,7 +41,7 @@
       <img src="images/anibf.gif" width="500px" alt="gif" />
       <img src="images/copcar.gif" width="400px" alt="gif" />
       <img src="images/cybermanorpriest.png" width="400px" alt="gif" />
-      <img src="images/water1m.gif" height="300px" alt="gif" />
+      <img src="images/water1m.gif" height="300px" alt="gif" /> -->
 
       <!-- <ul class="ad"> 
         <li><img src="images/ad/1.jpeg"></li>
@@ -62,27 +69,7 @@
         </ul> 
       <!-- </div> -->
 
-      <!-- <h2>Earth (the allegory of sensory and sensual life)</h2>
-      
-      <img src="images/earth.png" width="100%" alt="earth" /> <br>
-      <div style="margin:25px">
-
-      <br>
-
-      <p>realm of the human world, where sensual preoccupation predominates above all other activities </p>
-      <p>It represents an allegory of divine influences contaminated by contact with the sensuality of the earthly sphere. </p>
-      <img src="images/blueberry.png" height="200px" alt="blueberry" />
-      <div style="width: 100px">
-      <p> A man is overwhelmed by earthly influences and temptation finds himself swallwed by a blue egg, with no means of escape.</p>
-    </div>
-      <img src="images/pinkEgg.png" height="200px" alt="pink egg" />
-      <img src="images/mortality.png" height="200px" alt="pink egg" />
-      <img src="images/homosexual.png" height="200px" alt="homosexual" />
-
-    <img src="images/head.png" height="300px" alt="blueberry head" />
-    <img src="images/owl.png" height="300px" alt="owl" />
-    <img src="images/vessel.png" height="300px" alt="vessel" />
-    </div> -->
+    <!-- </div> -->
       <script>
         const earthCheckBox = localStorage.getItem("earth-check");
         // const earthChecked = localStorage.getItem("earthChecked");
@@ -103,8 +90,14 @@
           $("#" + key).prop("checked", value);
         });
 
-        $(document).ready(function(){
+$(document).ready(function(){
 
+  readNames();
+
+  //rrandom position
+  $('.mark').each(function(){
+		$(this).css({"left": Math.random() * window.outerWidth , "top": Math.random() * window.outerHeight})
+});
 $('#slider>li:gt(0)').hide();
   setInterval(function() {
     $('#slider > li:first')
@@ -116,6 +109,36 @@ $('#slider>li:gt(0)').hide();
 }, 2000);
 
 });
+
+//read the text file 
+function readNames(){
+  $.get('php/save.txt',
+  function(data) {
+  let splitArray = data.split('\n');
+
+  //remove any rogues
+  let filtered = splitArray.filter(
+  function(item){
+    return item!==""
+  }
+);
+  console.log(filtered);
+   displayNames(filtered);
+  },
+  'text');
+        // })//document readt
+}
+
+//display the most recent names
+function displayNames(parsedJSONArray){
+  $("#mark1").text(parsedJSONArray.at(-1).split(":")[1] + " was here"); //most recent submission
+  $("#mark2").text(parsedJSONArray.at(-2).split(":")[1] + " was here"); 
+  $("#mark3").text(parsedJSONArray.at(-3).split(":")[1] + " was here"); 
+  $("#mark4").text(parsedJSONArray.at(-4).split(":")[1] + " was here"); 
+  $("#mark5").text(parsedJSONArray.at(-5).split(":")[1] + " was here"); 
+  $("#mark6").text(parsedJSONArray.at(-6).split(":")[1] + " was here"); 
+  $("#mark7").text(parsedJSONArray.at(-7).split(":")[1] + " wasn't here"); //7th most recent submission
+}
 
       </script>
     </body>

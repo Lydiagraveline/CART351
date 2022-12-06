@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body>
+  <body style="background-image: url('images/heaven.png'); background-size: 100% 100%;">
     <div id="options" style="margin:10px;">
     <p class="fakeLink">
     <span id="clickToApologize">CLICK to apologize!</span> <br/>
@@ -22,18 +22,29 @@
     <div class="form">
     <h2>APOLOGIZE HERE!</h2>
     <label for="apologize"> Here is a space to apologize. Yours will be added to a master list, anonymously. </label> <br>
-    <input type="text" id="apologize" name="apologize"></input> <br>
+    <input type="text" id="apologize" name="apologize" required> <br>
     <input type="submit" name="submit" value="submit"/>
+    <input type="button" onclick="location.href='heaven.html';" value="nevermind"/>
+  </div>
+  <div class="sent" style="display:none;">
+    <p>Your apology has been sent! You will be forgiven in the next 5-10 business days. </p>
+    <input type="button" onclick="location.href='heaven.html';" value="ok" />
   </div>
 </form>
 
 <!-- be saved form -->
 <form id="saveForm" style="display:none;">
   <div class="form">
-    <h2>BE SAVED HERE!</h2>
-    <label for="save"> be saved.... Yours will be added to a master list, anonymously. </label> <br>
-    <input type="text" id="save" name="save"></input> <br>
+    <h2>Save your spot, make your mark!</h2>
+    <label for="save">Submit your name to reserve a spot. Your name will be displayed online.</label> <br>
+    <input type="text" id="save" name="save" required /><br>
     <input type="submit" name="submit" value="submit"/>
+    <input type="button" onclick="location.href='heaven.html';" value="nevermind"/>
+  </div>
+  <div class="sent" style="display:none;">
+    <p>Your submission has been received!</p>
+    <input type="button" onclick="location.href='heaven.html';" value="ok" />
+    <input type="button" onclick="location.href='earth.html';" value="i want to see it" />
   </div>
 </form>
 
@@ -42,8 +53,13 @@
   <div class="form">
     <h2>FORGIVE NOW!</h2>
     <label for="forgive"> Who and what are you forgiving? Yours will be added to a master list, anonymously. </label> <br>
-    <input type="text" id="forgive" name="forgive"></input> <br>
+    <input type="text" id="forgive" name="forgive" required/> <br>
     <input type="submit" name="submit" value="submit"/>
+    <input type="button" onclick="location.href='heaven.html';" value="nevermind"/>
+  </div>
+  <div class="sent" style="display:none;">
+    <p>Your submission has been received!</p>
+    <input type="button" onclick="location.href='heaven.html';" value="ok" />
   </div>
 </form>
 
@@ -52,8 +68,13 @@
   <div class="form">
     <h2>FORGET NOW!</h2>
     <label for="forget"> What are you trying to forget? Yours will be added to a master list, anonymously. </label> <br>
-    <input type="text" id="forget" name="forget"></input> <br>
+    <input type="text" id="forget" name="forget" required/> <br>
     <input type="submit" name="submit" value="submit"/>
+    <input type="button" onclick="location.href='heaven.html';" value="nevermind"/>
+  </div>
+  <div class="sent" style="display:none;">
+    <p>Your submission has been received! You will forget in the next 5-10 business days.</p>
+    <input type="button" onclick="location.href='heaven.html';" value="ok" />
   </div>
 </form>
   
@@ -84,6 +105,7 @@
         submitForm("#forgiveForm");
         submitForm("#forgetForm");
 
+        
 
       }) //document ready
 
@@ -93,10 +115,13 @@
             event.preventDefault();
              //turn the data into an array
             let data =$(form).serializeArray();
-            console.log("button clicked");
             for(let valuePairs of data.entries()) {
             //  console.log(valuePairs[0]+ ', ' + valuePairs[1]);
              }
+
+            //hide the form once submitted
+            $(".form").hide();
+            $(".sent").show();
 
              //send to ajax
              sendData(data);
@@ -127,8 +152,6 @@
             }//error
         }) //ajax
         //window.open("submissions.php");
-    
-
       }
 
       const heavenCheckBox = localStorage.getItem("heaven-check");

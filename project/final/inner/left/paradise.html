@@ -15,12 +15,15 @@
       <!-- <h2>outer panel</h2> -->
       <div class="panel-container">
         <div class="panel" id="top" onclick="location.href='heaven.html';">
+          <div class="wrapper"></div>
           Heaven
         </div>
         <div class="panel" id="middle" onclick="location.href='descent.html';">
+          <div class="wrapper middle"></div>
           Descent of the divine
         </div>
         <div class="panel" id="bottom" onclick="location.href='earth.html';">
+          <div class="wrapper bottom"></div>
           Earth
         </div>
       </div>
@@ -56,6 +59,13 @@
         let heaven = JSON.parse(heavenVal);
         let descent = JSON.parse(descentVal);
         let earth = JSON.parse(earthVal);
+
+        $("#bottom").css("background-image", "images/pond.png");
+        if(earth.option === true){
+             $("#bottom").css("background-image", "images/pond.png");
+            console.log("bottom=true")
+          }
+
 
         if (heaven.option === true && descent.option === true && earth.option === true) {
           $("#newPanel").show();
