@@ -9,14 +9,15 @@
     
   </head>
   <body>
-    <p>  <a href="paradise.html">menu</a> </p>
-    <!-- checkpoint -->
-    <div id="checkbox-container">
-      <div>
-        <label for="option">Checkpoint</label>
-        <input type="checkbox" id="option" />
-      </div>
-    </div>
+    <!-- menu link -->
+     <a href="paradise.html"><img src="images/anibf.gif"  /></a> 
+
+     <!-- appears if user has been to the center panel -->
+      <div style="float:right">
+      <a class="link" href="../center/heaven.html"></ahref> <img class="clickable" src="images/11.gif" style="width:80px; margin: 50px;  -webkit-filter: drop-shadow(5px 10px 20px #222);
+        filter: drop-shadow(5px 10px 20px #222);"></a>  
+       </div>
+
     <div style="position: relative; left: 0; top: 0;">
       <img src="images/fountain.png" width="100%" style="position: relative; left: 0; top: 0;" alt="fountain" />
 
@@ -120,23 +121,22 @@
     <script>
     // if user clicks on page
     $(document).on('click','body *',function () {
+
+     
+      // user has interacted with page
       localStorage.setItem("heavenLeft", "true");
       console.log(localStorage.heavenLeft);
+    
+    }); //documaent on click   
 
-    // $checkboxes.each(function () {
-    //   $checkboxes.prop('checked', true);
-    //   heavenValues[this.id] = this.checked;
-    // });
-    // localStorage.setItem("heavenValues", JSON.stringify(heavenValues));
-    // console.log(heavenValues);
-
-
-  }); //documaent on click   
-
-// On page load
-// $.each(heavenValues, function (key, value) {
-//   $("#" + key).prop("checked", value);
-// });
+    $(document).ready(function(){
+      //if user has been to the left panel, display link back
+        let heavenCenter = localStorage.getItem("heavenCenter");
+        console.log(heavenCenter);
+        if (heavenCenter === "true"){
+          $(".link").show();
+        }
+    })
     </script>
   </body>
 </html>

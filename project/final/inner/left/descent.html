@@ -21,9 +21,9 @@
           <pre>
             ,,))))))));,
             __)))))))))))))),
-    \|/       -\(((((''''((((((((.
-    -*-==//////((''  .     `)))))),
-    /|\      ))| o    ;-.    '(((((                                  ,(,
+  <span class="magic">\|/</span>     -\(((((''''((((((((.
+  <span class="magic">-*-</span>==//////((''  .     `)))))),
+  <span class="magic">/|\</span>    ))| o    ;-.    '(((((                                  ,(,
           ( `|    /  )    ;))))'                               ,_))^;(~
              |   |   |   ,))((((_     _____------~~~-.        %,;(;(>';'~
              o_);   ;    )))(((` ~---~  `::           \      %%~~)(v;(`('~
@@ -44,25 +44,30 @@
         </div>
 
         <!-- white goat, leads to center panel circuit -->
-        <a class="link clickable" style="float:right; margin-right:200px; display:none;" href="../center/circuit.html"><img src="../center/images/whiteGoat.jpeg" width="250px" alt="white goat" /> </a>
-
+        <a class="link clickable" style="float:right; margin-right:200px; display:none;" href="../center/circuit.html"><img src="images/goat.jpeg" width="250px" alt="white goat" /> </a> <br>
+        <div  style="float:right; margin-right:100px;">
+        <a href="earth.html" style=" z-index:1;"><img class="clickable" src="images/berry.gif"  width="50px" alt="berry"  > <br>
+        <p  style="color:red;"> Be fruitful</p> </a>
+      </div>
+      
       </div> 
+      
  
-      <p>  <a href="paradise.html">menu</a> </p>
+      <!-- <p>  <a href="paradise.html">menu</a> </p> -->
       <!-- checkpoint -->
-      <div id="checkbox-container">
+      <!-- <div id="checkbox-container">
         <div>
           <label for="option">Checkpoint</label>
           <input type="checkbox" id="option">
         </div>
       </div>
-      <br>
+      <br> -->
 
       <!-- form -->
       <div>
       <form id="form">  
         <label for="sex" >I am/We are a</label>
-        <input id="sex" name="sex" list="suggestions" placeholder="woman">
+        <input id="sex" name="sex" list="suggestions" placeholder="man" required>
           <datalist id="suggestions">
             <option value="Man">
             <option value="Woman">
@@ -72,50 +77,24 @@
           </datalist>
 
         <label for="seeking">seeking a</label>
-        <input id="seeking" name="seeking" list="suggestions">
+        <input id="seeking" name="seeking" list="suggestions" placeholder="woman" required>
           
         <label for="min_age" >between the ages of</label>
-        <input id="min_age" name="min_age" type="text" placeholder="18"/>
+        <input id="min_age" name="min_age" type="text" placeholder="18" required/>
         <label for="max_age" >and</label>
-        <input id="max_age" name="max_age"type="text" placeholder="35"/>
+        <input id="max_age" name="max_age"type="text" placeholder="35" required/>
 
         <label for="looking">looking for: </label>
-        <input id="looking" name="looking" type="text" placeholder="love"/>
+        <input id="looking" name="looking" type="text" placeholder="love" required/>
           
-      
-        <p><input type="submit" name="submit" value="SUBMIT" id=buttonS onclick="location.href='earth.html'"/> </p>
+        <input type="submit" name="submit" value="SUBMIT" id=submit/> 
       </form>
     </div>
-
-
-
-      <img src="images/brain.png" width="50%" alt="brain" />
-      
-      
-      <!-- <h2>The transitional realm</h2>
-      
-      <a href="heaven.html#orb">   <img src="images/fountainBottom.png" width="500px" alt="strange face" class="clickable"/></a>
-      <br>
-      <p>Water carries and conveys influences, it represents ideas and the flow of conciousness <br>
-
-
-
-      </p>
-      <img src="images/unicorn.png" height="300px" alt="unicorn" />
-      <img src="images/fountain.png" height="300px" alt="fountain" />
-      <p>On the left, the water is popualted by unicorns, stags, and the brahma bull </p>
-      <br>
-
-
-      <a href="earth.html#orb">   <img src="images/vermin.png" height="300px" alt="vermin" class="clickable" id="face"/></a>
-      <img src="images/face.png" height="300px" alt="strange face"/>
-      <p>On the right, vermin begin to spawn. They creep out of the water, crawling towards a dark cavity resembling a human face. Possibly
-        Golgotha or "skull hill." It represents corruption of the mind.
-      </p> -->
+      <!-- <img src="images/brain.png" width="50%" alt="brain" /> -->
 
       <script>
       $(document).ready (function() {
-
+        submitData()
         //if user has been to the circuit, display link back
         let circuit = localStorage.getItem("circuit");
         if (circuit === "true"){
@@ -135,9 +114,10 @@
       function submitData(){
         $("#form").submit(function(event){
           event.preventDefault();
+          console.log("submit");
           //turn the data into an array
           let data =$('#form').serializeArray();
-
+          // $("#submit").text("submitted!");
           //request
           $.ajax({
             type:"GET",
@@ -157,6 +137,15 @@
         
         })//submit
         }
+
+        $(".magic").mouseover(function(){
+          $(".magic").css("color","red");
+        }).mouseleave(function(){
+          $(".magic").css("color","black");
+        })
+        $(".magic").click(function(){
+          location.href = 'paradise.html';
+        })
       </script>
     </body>
 

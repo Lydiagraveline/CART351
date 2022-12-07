@@ -1,7 +1,7 @@
 I am/we are:Women
 seeking:Man
 ages:19-25
-looking for:someone to hold me tight
+looking for:someone special
 I am/we are:Woman
 seeking:Man
 ages:19-25
@@ -10,22 +10,10 @@ I am/we are:girl
 seeking:boy
 ages:18-19
 looking for:a boy
-I am/we are:
-seeking:
-ages:-
-looking for:
-I am/we are:
-seeking:
-ages:-
-looking for:
 I am/we are:Group (men and/or women)
 seeking:boy
 ages:2-200
 looking for:a servant to do puzzles
-I am/we are:
-seeking:
-ages:-
-looking for:
 I am/we are:Man
 seeking:dog
 ages:9-99
@@ -34,15 +22,15 @@ I am/we are:
 seeking:
 ages:-
 looking for:
-I am/we are:
-seeking:
-ages:-
-looking for:
-I am/we are:
-seeking:
-ages:-
-looking for:
-I am/we are:
-seeking:
-ages:-
-looking for:
+I am/we are:crazy guy
+seeking:crazy gurl
+ages:any-any
+looking for:something crazy
+I am/we are:test
+seeking:test
+ages:test-test
+looking for:test
+I am/we are:test
+seeking:test
+ages:test-test
+looking for:test

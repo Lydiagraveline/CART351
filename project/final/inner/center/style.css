@@ -63,7 +63,7 @@ body {
 div {
   box-sizing: border-box;
   /* display: inline-block; */
-  border: 1px solid green;
+  /* border: 1px solid green; */
   /* width:100%; */
 
 }
@@ -99,7 +99,7 @@ div:hover {
 
 /* The popup form - hidden by default */
 .form-popup {
-  /* display: none; */
+  display: none;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
