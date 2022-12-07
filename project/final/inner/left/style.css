@@ -22,23 +22,6 @@ div {
 }
 
 
-div:hover {
-  /* border: 3px solid green; */
-  /* --goldColor: #d3c088; */
-}
-
-input, label {
-  /* display:block; */
-}
-
-img {
-  /* display: inline-block; */
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* padding: 2px; */
-  /* width: 40%; */
-}
-
 .container {
   height: 100%;
   background-color: #000000;

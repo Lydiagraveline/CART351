@@ -10,27 +10,35 @@
   </head>
   <body>
   <div id="container">
+    <!-- info -->
+    <a style="text-decoration: none; position: absolute;" href="earth.html"><div style="margin:10px;">
+      <p class="info">&#9432;</p>
+    </div> </a>
+    
     <!-- shopping cart -->
     <div style= "right: 0px; top: 0px; float:right; position: absolute; margin: 10px;">
       <p>shopping cart:</p> 
       <p id="cart">0 items</p>
         <input type="button" onclick="emptyCart()" value="empty cart" />
         <input type="button" onclick="openForm()" value="check out" class="open-button"/>
-        <div class="form-popup" id="myForm">
+        <div class="form-popup" id="myForm" class='blinking'>
           <form action="/action_page.php" class="form-container">
             <!-- <h1>Login</h1> -->
+            <h2>CONGRATULATIONS!</h2>
+            <h3>THIS IS NOT A JOKE! <br>
+            YOU ARE <br>
+            THE 100,000th VISITOR!</h3>
+            <label for="price"><b>Tell me what you want to win:</b></label>
+            <input type="text" placeholder="" name="prize" required> <br/>
         
-            <label for="num"><b>Card number</b></label>
-            <input type="text" placeholder="" name="num" required> <br/>
-        
-            <label for="exp"><b>Expiry date:</b></label>
-            <input type="text" placeholder="" name="exp" required> <br/>
+            <label for="name"><b>Your name:</b></label>
+            <input type="text" placeholder="" name="name" required> 
   
-            <label for="sec"><b>Security code:</b></label>
-            <input type="text" placeholder="" name="exp" required> <br/>
+            <label for="email"><b>and email:</b></label>
+            <input type="text" placeholder="" name="email" required> <br/>
         
-            <button type="submit" onclick="location.href='center.html'" class="btn">checkout</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <button type="submit" onclick="location.href='center.html'" class="btn">checkout</button> <br>
+            <button type="button" class="btn cancel" onclick="closeForm()" style="margin:10px;">Close</button>
           </form>
         </div>
     </div>
@@ -177,6 +185,12 @@ function addToCart()
     // console.log(localStorage.cart)
     
 }
+
+$(".info").mouseover(function(){
+        $(this).append(" Popular compared to other posts you've seen.");
+      }).mouseleave(function(){
+        $(this).html('&#9432');
+      })
     </script>
   </body>
 </html>

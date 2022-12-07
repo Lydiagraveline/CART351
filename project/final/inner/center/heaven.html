@@ -4,23 +4,30 @@
     <meta charset="UTF-8" />
     <title>Heaven</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body style="background-image: url('images/heaven.png'); background-size: 100% 100%;">
-    
-    <p>  <a href="center.html">menu</a> </p>
+   
+    <!-- <p>  <a href="center.html">menu</a> </p> -->
     <!-- <p>  <a href="circuit.html">circuit</a> </p> -->
-    <p>  <a href="../left/heaven.html">left heaven</a> </p>
+    <!-- <p>  <a href="../left/heaven.html">left heaven</a> </p> -->
     
     <div id="options" style="margin:10px;">
+    <a href="../left/heaven.html"><img class="clickable" src="images/stork.gif" width="150px" style="display: block;margin: auto;"/></a>
     <p class="fakeLink">
     <span id="clickToApologize">CLICK to apologize!</span> <br/>
-    <span id="clickToBeSaved">CLICK to be saved!</span> <br/>
     <span id="clickToForgive">CLICK to forgive!</span> <br/>
-    <span id="clickToForget">CLICK to forget!</span> <br/>
-    <a href="circuit.html">CLICK to be pure!</a> <br/>
+    <span id="clickToForget" >CLICK to forget!</span> <br/>
+    <span id="clickToBeSaved">CLICK to be saved!</span> <br/>
+    <a class="_t" href="circuit.html"><span class="clickable">CLICK to be pure! </span></a> <br/>
   </p>
   </div>
+
+  <a style="text-decoration: none;" href="circuit.html"><div style="margin:10px;">
+    <p class="info">&#9432;</p>
+  </div> </a>
+  
 
   <!-- apologize form-->
   <form id="apologizeForm" style="display:none;">
@@ -41,7 +48,7 @@
 <form id="saveForm" style="display:none;">
   <div class="form">
     <h2>Save your spot, make your mark!</h2>
-    <label for="save">Submit your name to reserve a spot. Your name will be displayed online.</label> <br>
+    <label for="save">Submit your name to reserve a spot. Your submission will be temporarily displayed.</label> <br>
     <input type="text" id="save" name="save" required /><br>
     <input type="submit" name="submit" value="submit"/>
     <input type="button" onclick="location.href='heaven.html';" value="nevermind"/>
@@ -162,6 +169,14 @@
         }) //ajax
         //window.open("submissions.php");
       }
+
+      $(".info").mouseover(function(){
+        $(this).append(" Why am I seeing this post?");
+      }).mouseleave(function(){
+        $(this).html('&#9432');
+      })
+        
+      
     </script>
   </body>
 </html>

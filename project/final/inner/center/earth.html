@@ -8,21 +8,71 @@
     
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-    <body style="background-image: url('images/background.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <body style="background-image: url('images/background.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
     <!-- <div style="width:100%; height:100%; background-image: url('images/background.jpg'); background-size: cover;"> -->
+     
+      <!-- thegrid -->
+      <div class="container">
+        <div class="one">
+        </div>
+        <div class="two">
+          <!-- <p style="color:red;"id="mark1" class="mark">I was here</p> -->
+        </div>
+        <div class="three">
+          <!-- link to menu -->
+          <a href="center.html"><img class="clickable" src="images/29.gif" width="70px" alt="gif" style="display:block; margin: auto;"/></a>
+        </div>
+        <div class="four">
+          <!-- adult ad -->
+          <a href="../left/earth.html"><ul class="ad clickable" id="adult">
+            <li><img src="images/adultAd/adult.gif"></li>
+            <li><img src="images/adultAd/alt.gif"></li>
+            <li><img src="images/adultAd/dating.gif"></li>
+          </ul> </a>
 
-      <p>  <a href="center.html">menu</a> </p>
-      <p>  <a href="circuit.html">circuit</a> </p>
-      <p>  <a href="../left/earth.html">left earth</a> </p>
+        </div>
+        <div class="five">
+          <!-- online church ad -->
+          <ul class="ad" id="church">
+            <li><img src="images/onlineChurch/1.jpeg"></li>
+            <li><img src="images/onlineChurch/2.jpeg"></li>
+            <li><img src="images/onlineChurch/3.jpeg"></li>
+            <li><img src="images/onlineChurch/4.jpeg"></li>
+            <li><img src="images/onlineChurch/5.jpeg"></li>
+            <li><img src="images/onlineChurch/6.jpeg"></li>
+            <li><img src="images/onlineChurch/7.jpeg"></li>
+            <li><img src="images/onlineChurch/8.jpeg"></li>
+            <li><img src="images/onlineChurch/9.jpeg"></li>
+            <li><img src="images/onlineChurch/10.jpeg"></li>
+            <li><img src="images/onlineChurch/11.jpeg"></li>
+            <li><img src="images/onlineChurch/13.jpeg"></li>
+            <li><img src="images/onlineChurch/14.jpeg"></li>
+            <li><img src="images/onlineChurch/15.jpeg"></li>
+            <li><img src="images/onlineChurch/16.jpeg"></li>
+            <li><img src="images/onlineChurch/18.jpeg"></li>
+            <li><img src="images/onlineChurch/19.jpeg"></li>
+          </ul> 
+
+        </div>
+        <div class="six"></div>
+        <div class="seven"></div>
+        <div class="eight">
+          <a href="circuit.html"><img class="clickable" id="berry" src="images/strawberry.png" width="150px" style="display: block;margin: auto;"/></a>
+
+        </div>
+        <div class="nine"></div>
+      </div>
+
+
 
       <!-- user names, randomly positioned -->
-      <p style="color:red;"id="mark1" class="mark">I was here</p>
-      <p style="color:red;"id="mark2" class="mark">I was here</p>
-      <p style="color:red;"id="mark3" class="mark">I was here</p>
-      <p style="color:red;"id="mark4" class="mark">I was here</p>
-      <p style="color:red;"id="mark5" class="mark">I was here</p>
-      <p style="color:red;"id="mark6" class="mark">I was here</p>
-      <p id="mark7" class="mark" onclick="location.href='heaven.html';">I wasn't here</p>
+      <p id="mark1" class="mark">I was here</p>
+      <p id="mark2" class="mark">I was here</p>
+      <p id="mark3" class="mark">I was here</p>
+      <p id="mark4" class="mark">I was here</p>
+      <p id="mark5" class="mark">I was here</p>
+      <p id="mark6" class="mark">I was here</p>
+      <p id="mark7" class="mark clickable" onclick="location.href='heaven.html';">I wasn't here</p>
 
       <!-- <img src="images/deadFish.jpeg" width="300px" alt="deadFish" /> 
       <img src="images/23.gif" width="50px" alt="gif" />
@@ -39,31 +89,9 @@
       <img src="images/copcar.gif" width="400px" alt="gif" />
       <img src="images/cybermanorpriest.png" width="400px" alt="gif" />
       <img src="images/water1m.gif" height="300px" alt="gif" /> -->
-      <a href="../left/earth.html"><ul class="ad clickable" id="adult">
-        <li><img src="images/adultAd/adult.gif"></li>
-        <li><img src="images/adultAd/alt.gif"></li>
-        <li><img src="images/adultAd/dating.gif"></li>
-      </ul> </a>
 
-        <ul class="ad" id="church">
-          <li><img src="images/onlineChurch/1.jpeg"></li>
-          <li><img src="images/onlineChurch/2.jpeg"></li>
-          <li><img src="images/onlineChurch/3.jpeg"></li>
-          <li><img src="images/onlineChurch/4.jpeg"></li>
-          <li><img src="images/onlineChurch/5.jpeg"></li>
-          <li><img src="images/onlineChurch/6.jpeg"></li>
-          <li><img src="images/onlineChurch/7.jpeg"></li>
-          <li><img src="images/onlineChurch/8.jpeg"></li>
-          <li><img src="images/onlineChurch/9.jpeg"></li>
-          <li><img src="images/onlineChurch/10.jpeg"></li>
-          <li><img src="images/onlineChurch/11.jpeg"></li>
-          <li><img src="images/onlineChurch/13.jpeg"></li>
-          <li><img src="images/onlineChurch/14.jpeg"></li>
-          <li><img src="images/onlineChurch/15.jpeg"></li>
-          <li><img src="images/onlineChurch/16.jpeg"></li>
-          <li><img src="images/onlineChurch/18.jpeg"></li>
-          <li><img src="images/onlineChurch/19.jpeg"></li>
-        </ul> 
+
+
 
 
 
@@ -110,24 +138,46 @@
 
       //Randomly position the names
       function positionNames(){
-        //rrandom position
+        //rrandom position     
         $('.mark').each(function(){
-		     $(this).css({"left": Math.random() * window.outerWidth , "top": Math.random() * window.outerHeight})
+		     $(this).css({"left": Math.random() * $(".container").width() - 50, "top": Math.random() * $(".container").height() - 50})
+        
+         //reposition rouges 
+         if($(this).css("left") <= "10") {
+          $(this).css( "left", "+=35" );
+         }
+         if ($(this).css("top") <= "10"){
+          // $(this).css( "color", "white" );
+          $(this).css( "left", "+=45" );
+         }
+        
         });
 
+          //on mouse over
+          $('.mark').on("mouseover", function () {
+            //if it is NOT mark 7
+            if ($(this).attr("id") !== "mark7") {
+              $(this).css({"left": Math.random() * $(".container").width() - 50, "top": Math.random() * $(".container").height() - 50})
+              if($(this).css("left") <= "10") {
+          $(this).css( "left", "+=35" );
+         }
+         if ($(this).css("top") <= "10"){
+          // $(this).css( "color", "white" );
+          $(this).css( "left", "+=45" );
+         }
+            
+            }
+        });
       }; //position names
 
-      function displayAd(ad){
-        $(ad+' >li:gt(0)').hide();
-        setInterval(function() {
-          $(ad+' > li:first')
-          .fadeOut(1)
-          .next()
-          .fadeIn(1)
-          .end()
-          .appendTo(ad);
-         }, 2000);
-      }; //displayAd
+    //handle strawberry
+    $('#berry').hover(function () {
+      $(this).attr("src", "images/whiteberry.png");
+    }, function() {
+      $(this).attr("src", "images/strawberry.png");
+    }
+    ) 
+
       </script>
     </body>
   </html>
