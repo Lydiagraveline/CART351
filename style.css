@@ -1,19 +1,74 @@
 html,
 body {
-  /* height: 100%; */
+  height: 100%;
   padding: 0;
   margin: 0;
-  /* background-image: url("images/thankyou.jpg"); */
-  /* border: 3px solid green; */
+  text-align: center;
+  overflow: hidden;
+}
+header{
+  background-color: aqua;
+  border:1px solid palevioletred
 }
 
-header {
-  /* border: 3px solid red; */
+.wrapper{
+  width:100%;
+  height: 100%;
+  overflow: hidden;
+  display:flex;
+  flex-flow: wrap;
 }
 
-h3{
-  /* padding-left: 25px; */
+.wrapper > div {
+  width: 50%;
+  height: 50%;
+  /* float: left; */
+  /* display: block; */
+  /* center the content */
+  padding-bottom: 75px;;
+  display: flex;
+  flex-flow: wrap;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  transition: transform 0.5s;
 }
+
+.wrapper > div:hover {
+  transform: scale(1.05);
+  /* border: 3px solid rgb(255, 255, 255); */
+  z-index:1;
+}
+
+
+#div1 {
+  /* background-image: url("images/salad.jpeg") */
+  background-image: url("./exercises/images/mud.jpeg")
+}
+
+#div1:hover{
+  box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+}
+#div2 { 
+  background-color: #b67181; 
+  padding: 0px;
+}
+#div2:hover{
+  background-color: #cf8596; 
+}
+
+#div2 > a:hover{
+  color:white;
+}
+
+#div3 {
+  /* background: something eventually */
+}
+#div4 {
+  /* background: something eventually */
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -33,4 +88,41 @@ footer {
   /* height:60px; */
   background:#000;
   color: #FFF
+}
+
+
+.inp {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 18px;
+  margin: 10px;
+  text-align: center;
+  touch-action: manipulation;
+}
+
+footer {
+  background-color: rgb(44, 44, 44);
+  border:1px solid palevioletred;
+  border-bottom: none;
+  padding:5px;
+  /* display:block; */
+  text-align: center;
+  z-index: 2;
+  
+}
+
+footer a {
+  color:white;
+}
+
+footer a:hover {
+  color: #ffacbf;
+  
 }

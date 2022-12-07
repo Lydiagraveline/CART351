@@ -1,0 +1,17 @@
+/* exercise page css */
+
+/* the divs */
+#ex1 {
+  background-image: url("images/salad.jpeg");
+}
+
+
+#ex3{
+  background: rgb(213, 172, 214);
+}
+
+#ex3 button {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
