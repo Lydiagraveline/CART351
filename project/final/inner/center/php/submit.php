@@ -39,6 +39,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
         fwrite($frgtFile, "Submission:".$forget."\n");
         fclose($frgtFile); 
        exit;
-    }
+    } 
 }
 ?>

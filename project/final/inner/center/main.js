@@ -34,3 +34,22 @@ function emptyCart(){
           .appendTo(ad);
          }, 2000);
       }; //displayAd
+
+      //submit a form when the button is pressed
+      function submitForm(form){
+        $(form).submit(function(event){
+            event.preventDefault();
+             //turn the data into an array
+            let data =$(form).serializeArray();
+            for(let valuePairs of data.entries()) {
+            //  console.log(valuePairs[0]+ ', ' + valuePairs[1]);
+             }
+
+            //hide the form once submitted
+            $(".form").hide();
+            $(".sent").show();
+
+             //send to ajax
+             sendData(data);
+            })//submit form
+      }
