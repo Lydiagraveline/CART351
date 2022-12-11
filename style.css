@@ -11,8 +11,21 @@ header{
   border:1px solid palevioletred
 }
 
+#imageWrapper{
+  width:30%;
+  height: 100%;
+  right: 0;
+  position:absolute;
+  /* border: 3px solid red; */
+  /* background-color: #000; */
+  /* color: white; */
+  background-image: url("project/images/process.gif");
+  background-size: contain;
+  z-index: 9999;
+}
+
 .wrapper{
-  width:100%;
+  width:200%;
   height: 100%;
   overflow: hidden;
   display:flex;
@@ -45,6 +58,7 @@ header{
 #div1 {
   /* background-image: url("images/salad.jpeg") */
   background-image: url("./exercises/images/mud.jpeg")
+  /* background-image: url("project/images/process.gif") */
 }
 
 #div1:hover{
@@ -63,10 +77,12 @@ header{
 }
 
 #div3 {
-  /* background: something eventually */
+  /*  */
+  /* height:100%; */
 }
+
 #div4 {
-  /* background: something eventually */
+  /* background: something eventually  */
 }
 
 .center {
