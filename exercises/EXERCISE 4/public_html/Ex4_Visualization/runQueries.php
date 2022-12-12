@@ -61,7 +61,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
     FIVE
     Select all entries in the database that occur on a Monday or a Tuesday and order them by the event_affect_strength */
     if($_GET["select-query"]==="five"){
-      //TO IMPLEMENT:
       $selectedQuery = "SELECT * FROM dataStuff WHERE day IN ('monday', 'tuesday') ORDER BY event_affect_strength";
     }
 
@@ -69,8 +68,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
     SIX
     Select all entries in the database where both the start_mood and after_mood fall into the negative category and order the entries by weather.  */
     else if($_GET["select-query"]==="six"){
-      //TO IMPLEMENT:
-      $selectedQuery = "";
+      $selectedQuery = "SELECT * FROM dataStuff WHERE before_mood AND after_mood IN ('sad','angry','neutral','calm', 'anxious','moody','hurt')";
   }
 
   if($selectedQuery!==""){
