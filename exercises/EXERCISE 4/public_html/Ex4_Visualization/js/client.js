@@ -59,7 +59,8 @@ querySelectDropDown.onchange = function() {
       ** bonus: if your visualizations(s) are interactive or animate.
       ****/
       case "three":{
-       // TODO
+        // displayAsDefault(parsedJSON);
+        displayThree(parsedJSON);
         break;
       }
       case "four":{
@@ -72,7 +73,7 @@ querySelectDropDown.onchange = function() {
         break;
       }
       case "six":{
-        // TODO
+        displaySix(parsedJSON);
         break;
       }
       default:{
@@ -83,14 +84,105 @@ querySelectDropDown.onchange = function() {
     } //switch
 
     //FOR DEBUGGING
-    console.log(parsedJSON);
-    console.log(parsedJSON.length)
+    //console.log(parsedJSON);
+    //console.log(parsedJSON.length)
 
 
   });
   /***********************************************/
 
 };
+
+  // assign a given color palette to the given data and return it
+  function assignColorPalette(data, palette){
+    let coloredData ={}
+    let possibleData = data[data.length-1];
+    //let palette = ['#F2D479','#A9C3C4','#A7D9D4','#C4A9BA','#D6D98B'];
+    for(let i = 0; i< possibleData.length; i++){
+      coloredData[possibleData[i]] = palette[i];
+      }
+    console.log(coloredData);
+    return coloredData; 
+  } 
+
+    /******************* THREE ****************************/
+  function displayThree(resultSet){
+    //reset
+    dataPoints =[];
+    let xPos = 0;
+    let yPos =0;
+    let NUM_COLS =30;
+    let CELL_SIZE = 20;
+    // arbitrary values, changes later
+    let POINT_SIZE = 20;
+
+    let palette = ['#F2D479','#A9C3C4','#A7D9D4','#C4A9BA','#D6D98B'];
+    let t = assignColorPalette(resultSet, palette);
+    
+    // COLOR
+    // let coloredMoods = {}
+     let possibleMoods = resultSet[resultSet.length-1];
+    // // console.log("possibleMoods = "+possibleMoods); // = happy, neutral, calm, serene, well
+    // let palette = ['#F2D479','#A9C3C4','#A7D9D4','#C4A9BA','#D6D98B'];
+    // for(let i = 0; i< possibleMoods.length; i++){
+    //   coloredMoods[possibleMoods[i]] = palette[i];
+    //   }
+
+      let emotes = {}
+      let possibleEmotes = [':D',':|','ᵕ.ᵕ','^_^',':)']; // happy, neutral, calm, serene, well
+      for(let i = 0; i< possibleMoods.length; i++){
+        emotes[possibleMoods[i]] = possibleEmotes[i];
+        }
+
+    document.getElementById("parent-wrapper").style.background = "rgba(237,247,242)";
+    description.textContent = "POSITIVE MOODS"; 
+    description.style.color = '#4CB6C2'; //blue
+
+    //last  element is the helper array...
+    for(let i = 0; i<resultSet.length-1; i++){
+      dataPoints.push(new myDataPoint(resultSet[i].dataId,
+        resultSet[i].day,
+        resultSet[i].weather,
+        resultSet[i].start_mood,
+        resultSet[i].after_mood,
+        resultSet[i].after_mood_strength,
+        resultSet[i].event_affect_strength,
+        resultSet[i].eID,
+        //coloredMoods[resultSet[i].after_mood],
+        t[resultSet[i].after_mood],
+        document.getElementById("childOne"),
+        "point_three"
+      ));
+      
+      if(i%NUM_COLS ===0){
+     //reset x and inc y (go to next row)
+      xPos =0;
+      yPos+=CELL_SIZE;
+    }else{xPos+=CELL_SIZE; }
+
+          //update size
+          POINT_SIZE = 10 + dataPoints[i].am_strength;
+           CELL_SIZE = POINT_SIZE;
+
+    dataPoints[i].update(xPos,yPos, POINT_SIZE);
+    
+    
+    dataPoints[i].container.addEventListener("mouseover", function(){
+      // display an emote 
+      //this.innerHTML = "<p>"+emotes[resultSet[i].after_mood]+"</p>";
+      description.textContent = resultSet[i].after_mood +" "+ emotes[resultSet[i].after_mood]; 
+    }); 
+    dataPoints[i].container.addEventListener("mouseout", function(){ 
+      //this.innerHTML = "";
+    });
+      
+    
+    dataPoints[i].container.onclick = function(){console.log("am_stength: "+dataPoints[i].am_strength+" after_mood: "+dataPoints[i].after_mood)}
+    }//for
+
+    document.getElementById("childOne").classList.add("flex"); //ass "flex" class to it's container
+    document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
+      } //display three
 
   /*******************DISPLAY AS GROUP****************************/
 
@@ -108,12 +200,12 @@ querySelectDropDown.onchange = function() {
 
         //reget
         let possibleEvents = resultSet[resultSet.length-1];
+        console.log("possibleEvents = "+possibleEvents);
         let possibleColors = ['rgb(198, 236, 217)','rgb(179, 230, 204)','rgb(159, 223, 190)','rgb(140, 217, 177)','rgb(121, 210, 164)','rgb(102, 204, 151)','rgb(83, 198, 138)','rgb(64, 191, 125)','rgb(255, 204, 179)','rgb(255, 170, 128)','rgb(255, 153, 102)','rgb(255, 136, 77)','rgb(255, 119, 51)','rgb(255, 102, 26)','rgb(255, 85, 0)','rgb(230, 77, 0)','rgb(204, 68, 0)'];
 
         for(let i = 0; i< possibleColors.length; i++){
           coloredEvents[possibleEvents[i]] = possibleColors[i];
-
-          }
+        }
 
 
       let offsetX =-200;
@@ -186,6 +278,7 @@ querySelectDropDown.onchange = function() {
     let coloredMoods = {}
 
     let possibleMoods = resultSet[resultSet.length-1];
+    console.log("possibleMoods = "+possibleMoods);
     let possibleColors = ['rgba(0, 64, 255,.5)','rgba(26, 83, 255,.5)','rgba(51, 102, 255,.7)','rgba(51, 102, 255,.4)', 'rgba(77, 121,255,.6)','rgba(102, 140, 255,.6)','rgba(128, 159, 255,.4)','rgba(153, 179, 255,.3)','rgba(179, 198, 255,.6)','rgba(204, 217, 255,.4)'];
 
     for(let i = 0; i< possibleMoods.length; i++){
@@ -197,8 +290,6 @@ querySelectDropDown.onchange = function() {
         document.getElementById("parent-wrapper").style.background = "rgba(0, 26, 102,1)";
         description.textContent = "BY AFTER MOOD";
         description.style.color = 'rgba(0, 64, 255,.5)';
-
-
 
         for(let i = 0; i<resultSet.length-1; i++){
           dataPoints.push(new myDataPoint(resultSet[i].dataId,
@@ -246,6 +337,7 @@ function displayAsDefault(resultSet){
   coloredDays object
   */
   let possibleDays = resultSet[resultSet.length-1];
+  //console.log("possibleDays = "+possibleDays);
   let possibleColors = ['rgb(255, 102, 153)', 'rgb(255, 77, 136)','rgb(255, 51, 119)','rgb(255, 26, 102)','rgb(255, 0, 85)','rgb(255, 0, 85)','rgb(255, 0, 85)'];
 
   for(let i = 0; i< possibleDays.length; i++){
@@ -290,11 +382,85 @@ function displayAsDefault(resultSet){
     xPos+=CELL_SIZE;
   }
   //update the position of the data point...
-  dataPoints[i].update(xPos,yPos);
+  dataPoints[i].update(xPos,yPos); 
+
+  // test 
+  // log the "day" of the data point that was clicked
+  dataPoints[i].container.onclick = function(){console.log(dataPoints[i].day)}
+
 }//for
   document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
 
 }//function
 
 /***********************************************/
-});
+/******************* SIX****************************/
+  function displaySix(resultSet){
+    dataPoints =[];
+    let xPos = 0;
+    let yPos =0;
+    const NUM_COLS =25;
+    const CELL_SIZE = 25;  
+                  //clear,   cloudy,    fog,       grey,    raining,   snowing,   stormy,  fog
+                  //                                                     white             yellow
+    // let palette = ['#F2D479','#A9C3C4','#A7D9D4','grey','#F4D03F', '#FFFFFF','#F4D03F', '#F4D03F'];
+                //  stormy,         rainy,              sunny,   cloudy,       clear,    snowing,  grey,   fog
+    let palette = ['DarkSlateGray', 'LightSlateGray', '#FFDF87', 'Gainsboro', 'SkyBlue', 'snow', 'grey', 'WhiteSmoke'];
+    let weatherColor = assignColorPalette(resultSet, palette);
+    
+    // let possibleWeather = resultSet[resultSet.length-1];
+    // console.log("possibleWeather = "+possibleWeather);
+
+    // console.log("all = "+resultSet.length);
+
+    //last  element is the helper array...
+       for(let i = 0; i<resultSet.length-1; i++){
+        dataPoints.push(new myDataPoint(resultSet[i].dataId,
+          resultSet[i].day,
+          resultSet[i].weather,
+          resultSet[i].start_mood,
+          resultSet[i].after_mood,
+          resultSet[i].after_mood_strength,
+          resultSet[i].event_affect_strength,
+          resultSet[i].eID,
+          //coloredMoods[resultSet[i].after_mood],
+          weatherColor[resultSet[i].weather],
+          document.getElementById("childOne"),
+          "point_six"
+        ));
+        
+        if(i%NUM_COLS ===0){
+       //reset x and inc y (go to next row)
+        xPos =0;
+        yPos+=CELL_SIZE;
+         }else{xPos+=CELL_SIZE; }
+  
+            //update size
+            // POINT_SIZE = 10 + dataPoints[i].am_strength;
+            //  CELL_SIZE = POINT_SIZE;
+  
+      dataPoints[i].update(xPos,yPos);
+      let text = resultSet[i].weather + " " + resultSet[i].start_mood + " then " + resultSet[i].after_mood
+      dataPoints[i].container.innerHTML = "<p>" + text +"</p>";
+      
+      // dataPoints[i].container.addEventListener("mouseover", function(){
+      //   // display an emote 
+      //   //this.innerHTML = "<p>"+emotes[resultSet[i].after_mood]+"</p>";
+      //   description.textContent = resultSet[i].after_mood +" "+ emotes[resultSet[i].after_mood]; 
+      // }); 
+      // dataPoints[i].container.addEventListener("mouseout", function(){ 
+      //   //this.innerHTML = "";
+      // });
+        
+      
+      // dataPoints[i].container.onclick = function(){console.log("am_stength: "+dataPoints[i].am_strength+" after_mood: "+dataPoints[i].after_mood)}
+      }//for
+      
+      document.getElementById("childOne").classList.remove("flex"); //remove "flex" class 
+      document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
+      description.textContent = "Negative mood before and after, organized by weather";
+      // document.getElementById("parent-wrapper").
+
+   } //display six
+
+}); //document ready

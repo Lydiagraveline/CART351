@@ -3,7 +3,7 @@
 
 class myDataPoint{
 //gets filled from the db request
-constructor(id,day,weather,start_mood,after_mood,am_strength,event_affect_strength, eID,colorAsString, parentContainer,cssStyle){
+constructor(id,day,weather,start_mood,after_mood,am_strength,event_affect_strength, eID, colorAsString, parentContainer,cssStyle){
     this.id = id;
     this.day = day;
     this.weather = weather;
@@ -22,13 +22,17 @@ constructor(id,day,weather,start_mood,after_mood,am_strength,event_affect_streng
     parentContainer.appendChild(this.container);
 
   }
-  update(inX,inY){
+  update(inX,inY,size){
     this.x = inX;
     this.y = inY;
     this.container.style.left = inX+"px";
     this.container.style.top = inY+"px";
 
+    //change size
+    this.container.style.width = size+"px";
+    this.container.style.height = size+"px";
+    
   }
-
+  
 
 }//end class

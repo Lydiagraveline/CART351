@@ -68,7 +68,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
     SIX
     Select all entries in the database where both the start_mood and after_mood fall into the negative category and order the entries by weather.  */
     else if($_GET["select-query"]==="six"){
-      $selectedQuery = "SELECT * FROM dataStuff WHERE before_mood AND after_mood IN ('sad','angry','neutral','calm', 'anxious','moody','hurt')";
+       $selectedQuery = 
+       "SELECT * 
+        FROM dataStuff 
+        WHERE (start_mood IN ('sad','angry','neutral','calm', 'anxious','moody','hurt')) AND (after_mood IN ('sad','angry','neutral','calm', 'anxious','moody','hurt'))
+        ORDER BY weather"; //also looks cool without order, looks like a 'temperature blanket'
   }
 
   if($selectedQuery!==""){
@@ -93,7 +97,23 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
       if($_GET["select-query"] =="two"){
         $outArr[]= $events;
       }
+      /***********************************************/
+      /*          my additions                       */
+      /***********************************************/
+      // if it is the THIRD query add on positive_moods at end of outArr
+      if($_GET["select-query"] =="three"){
+        $outArr[]= $positive_moods;
+      }
 
+      // if it is the FOURTH query add on weather at end of outArr
+      if($_GET["select-query"] =="four"){
+        $outArr[]= $events;
+      }
+      
+      // if it is the SIXTH query add on weather at end of outArr
+      if($_GET["select-query"] =="six"){
+        $outArr[]= $weather;
+      }
       echo(json_encode($outArr));
   } //the query is not empty string
 
