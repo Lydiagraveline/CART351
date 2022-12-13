@@ -61,7 +61,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
     FIVE
     Select all entries in the database that occur on a Monday or a Tuesday and order them by the event_affect_strength */
     if($_GET["select-query"]==="five"){
-      $selectedQuery = "SELECT * FROM dataStuff WHERE day IN ('monday', 'tuesday') ORDER BY event_affect_strength";
+      //$selectedQuery = "SELECT * FROM dataStuff WHERE day IN ('monday', 'tuesday') ORDER BY event_affect_strength";
+      $selectedQuery = "SELECT * FROM dataStuff WHERE day = 'Monday' OR day = 'Tuesday' 
+      ORDER BY event_affect_strength
+      ";
     }
 
     /* 
@@ -105,9 +108,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
         $outArr[]= $positive_moods;
       }
 
-      // if it is the FOURTH query add on weather at end of outArr
-      if($_GET["select-query"] =="four"){
-        $outArr[]= $events;
+      // if it is the FIFTH query add on days at end of outArr
+      if($_GET["select-query"] =="five"){
+        $outArr[]= $days;
       }
       
       // if it is the SIXTH query add on weather at end of outArr

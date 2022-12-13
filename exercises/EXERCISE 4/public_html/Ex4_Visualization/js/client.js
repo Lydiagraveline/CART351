@@ -69,7 +69,7 @@ querySelectDropDown.onchange = function() {
       }
 
       case "five":{
-        // TODO
+        displayFive(parsedJSON);
         break;
       }
       case "six":{
@@ -180,7 +180,7 @@ querySelectDropDown.onchange = function() {
     dataPoints[i].container.onclick = function(){console.log("am_stength: "+dataPoints[i].am_strength+" after_mood: "+dataPoints[i].after_mood)}
     }//for
 
-    document.getElementById("childOne").classList.add("flex"); //ass "flex" class to it's container
+    document.getElementById("childOne").classList.add("flex"); //add "flex" class to it's container
     document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
       } //display three
 
@@ -394,6 +394,58 @@ function displayAsDefault(resultSet){
 }//function
 
 /***********************************************/
+/******************* FIVE ****************************/
+function displayFive(resultSet){
+  dataPoints =[];
+  let xPos = 0;
+  let yPos =0;
+  const NUM_COLS = 500;
+  const CELL_SIZE = 2;  
+
+  console.log(resultSet.length);
+  
+  let palette = ['darkOrange', 'green'];
+  let dayColor = assignColorPalette(resultSet, palette);
+
+  //last  element is the helper array...
+     for(let i = 0; i<resultSet.length-1; i++){
+      dataPoints.push(new myDataPoint(resultSet[i].dataId,
+        resultSet[i].day,
+        resultSet[i].weather,
+        resultSet[i].start_mood,
+        resultSet[i].after_mood,
+        resultSet[i].after_mood_strength,
+        resultSet[i].event_affect_strength,
+        resultSet[i].eID,
+        //coloredMoods[resultSet[i].after_mood],
+        dayColor[resultSet[i].day],
+        document.getElementById("childOne"),
+        "point_five"
+      ));
+      
+      if(i%NUM_COLS ===0){
+     //reset x and inc y (go to next row)
+      xPos =0;
+      yPos+=CELL_SIZE;
+       }else{xPos+=CELL_SIZE; }    
+    dataPoints[i].update(xPos,yPos);
+    dataPoints[i].container.style.height = resultSet[i].event_affect_strength * 10 + "%";
+    
+    // add text 
+    //let text = resultSet[i].weather + " " + resultSet[i].start_mood + " then " + resultSet[i].after_mood
+    let text = resultSet[i].event_affect_strength
+    dataPoints[i].container.innerHTML = "<p> event affect strength: " + text +"</p>";
+  
+    }//for
+    
+    document.getElementById("childOne").classList.add("flex"); //ass "flex" class to it's container
+    document.getElementById("childOne").style.height = `${yPos+200}px`;
+    document.getElementById("parent-wrapper").style.background = "Khaki";
+    description.style.color = 'black';
+    description.innerHTML = "Occured on a <span style='color:darkOrange'>Monday</span> or <span style='color:green'>Tuesday,</span> and ordered by event_affect_strength";
+    // document.getElementById("parent-wrapper").
+
+ } //display five
 /******************* SIX****************************/
   function displaySix(resultSet){
     dataPoints =[];
@@ -401,17 +453,10 @@ function displayAsDefault(resultSet){
     let yPos =0;
     const NUM_COLS =25;
     const CELL_SIZE = 25;  
-                  //clear,   cloudy,    fog,       grey,    raining,   snowing,   stormy,  fog
-                  //                                                     white             yellow
-    // let palette = ['#F2D479','#A9C3C4','#A7D9D4','grey','#F4D03F', '#FFFFFF','#F4D03F', '#F4D03F'];
+
                 //  stormy,         rainy,              sunny,   cloudy,       clear,    snowing,  grey,   fog
     let palette = ['DarkSlateGray', 'LightSlateGray', '#FFDF87', 'Gainsboro', 'SkyBlue', 'snow', 'grey', 'WhiteSmoke'];
     let weatherColor = assignColorPalette(resultSet, palette);
-    
-    // let possibleWeather = resultSet[resultSet.length-1];
-    // console.log("possibleWeather = "+possibleWeather);
-
-    // console.log("all = "+resultSet.length);
 
     //last  element is the helper array...
        for(let i = 0; i<resultSet.length-1; i++){
@@ -433,27 +478,13 @@ function displayAsDefault(resultSet){
        //reset x and inc y (go to next row)
         xPos =0;
         yPos+=CELL_SIZE;
-         }else{xPos+=CELL_SIZE; }
-  
-            //update size
-            // POINT_SIZE = 10 + dataPoints[i].am_strength;
-            //  CELL_SIZE = POINT_SIZE;
-  
+         }else{xPos+=CELL_SIZE; }    
       dataPoints[i].update(xPos,yPos);
+      
+      // add text 
       let text = resultSet[i].weather + " " + resultSet[i].start_mood + " then " + resultSet[i].after_mood
       dataPoints[i].container.innerHTML = "<p>" + text +"</p>";
-      
-      // dataPoints[i].container.addEventListener("mouseover", function(){
-      //   // display an emote 
-      //   //this.innerHTML = "<p>"+emotes[resultSet[i].after_mood]+"</p>";
-      //   description.textContent = resultSet[i].after_mood +" "+ emotes[resultSet[i].after_mood]; 
-      // }); 
-      // dataPoints[i].container.addEventListener("mouseout", function(){ 
-      //   //this.innerHTML = "";
-      // });
-        
-      
-      // dataPoints[i].container.onclick = function(){console.log("am_stength: "+dataPoints[i].am_strength+" after_mood: "+dataPoints[i].after_mood)}
+    
       }//for
       
       document.getElementById("childOne").classList.remove("flex"); //remove "flex" class 
