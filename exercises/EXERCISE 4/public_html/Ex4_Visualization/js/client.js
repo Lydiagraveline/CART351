@@ -64,7 +64,7 @@ querySelectDropDown.onchange = function() {
         break;
       }
       case "four":{
-        // TODO
+        displayFour(parsedJSON);
         break;
       }
 
@@ -283,7 +283,7 @@ querySelectDropDown.onchange = function() {
 
     for(let i = 0; i< possibleMoods.length; i++){
       coloredMoods[possibleMoods[i]] = possibleColors[i];
-
+      
       }
 
       //set background of parent ... for fun ..
@@ -392,9 +392,108 @@ function displayAsDefault(resultSet){
   document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
 
 }//function
+/***********************************************/
 
 /***********************************************/
-/******************* FIVE ****************************/
+/*          my additions  :)                   */
+/***********************************************/
+
+/******************* FOUR **********************/
+function displayFour(resultSet){
+  dataPoints =[];
+  let xPos = 0;
+  let yPos =0;
+  const NUM_COLS =41;
+  const CELL_SIZE = 10;  
+            
+  let palette = 
+  ['ForestGreen',  //walking in a forest       
+  'LightSeaGreen', //swimming in the ocean
+  'HotPink',      //dining with a sibling
+  'MediumOrchid',    //taking a nap with a cat
+  'SkyBlue',      //watching rain fall through the window
+  '', 
+  'SaddleBrown',  //baking a chocolate cake
+  'yellow',         //roller skating
+  'blue',     //reading a comic
+  'red',      //planting roses
+  'coral',     //chomping on carrots
+  'WhiteSmoke',      //whistling in the wind
+  'DarkSlateGray',   //walking through a dark tunnel 
+  'gold',    //sunbathing in a desert
+  'Linen', //visiting a parent for an afternoon
+  'Fuchsia', //learning a new programming language
+  'Cyan',]; //running up the stairs
+  let eventColor = assignColorPalette(resultSet, palette);
+ 
+   //console.log( resultSet[resultSet.length-1]);
+  // console.log(resultSet.length-1);
+
+  let container =  document.getElementById("childOne")
+
+  possibleEvents = {}
+  possibleEvents = resultSet[resultSet.length-1];
+  console.log(possibleEvents)
+
+  // Make a circular div for each event
+  for(let j = 0; j <  possibleEvents.length; j++){
+    let circleDiv = document.createElement("div");
+    let event = possibleEvents[j]   
+    circleDiv.classList.add("circle"); // add circle class
+    circleDiv.setAttribute("id", event) //add id 
+    container.appendChild(circleDiv);
+      
+    circleDiv.innerHTML = "<i></i><p>"+event+"</p>";
+      // console.log(possibleEvents[j]);
+  }
+
+  //last  element is the helper array...
+     for(let i = 0; i<resultSet.length-1; i++){
+      // for(let j = 0; j < resultSet[resultSet.length-1]; j++){
+      //   console.log("!");
+      // }
+     
+      dataPoints.push(new myDataPoint(resultSet[i].dataId,
+        resultSet[i].day,
+        resultSet[i].weather,
+        resultSet[i].start_mood,
+        resultSet[i].after_mood,
+        resultSet[i].after_mood_strength,
+        resultSet[i].event_affect_strength,
+        resultSet[i].eID,
+        eventColor[resultSet[i].eventName],
+        document.getElementById(resultSet[i].eventName), //dataPoints get added to the 'circle div' with the corresponding ID
+        "point_four"
+      ));
+      
+      //for(let j = 0; j<resultSet.length-1; i++)
+    //   if(i%NUM_COLS ===0){
+    //  //reset x and inc y (go to next row)
+    //   xPos =0;
+    //   yPos+=CELL_SIZE;
+    //    }else{xPos+=CELL_SIZE; }    
+    let size = Number(resultSet[i].event_affect_strength) + Number( 2);
+    //  console.log(size);
+    dataPoints[i].updateCircles(size);
+    
+    // add text 
+    let text = resultSet[i].eventName;
+    dataPoints[i].container.innerHTML = "<p>" + text +"</p>";
+  
+    }//for
+    
+    // let container =  document.getElementById("childOne")
+    document.getElementById("childOne").classList.add("flex"); //add "flex" class to it's container
+    document.getElementById("childOne").style.height = `800px`;
+    document.getElementById("parent-wrapper").style.background = "black";
+
+    description.textContent = "All entries ordered by event name.";
+    // document.getElementById("parent-wrapper").
+
+ } //display four
+/***********************************************/
+
+/******************* FIVE **********************/
 function displayFive(resultSet){
   dataPoints =[];
   let xPos = 0;
@@ -402,7 +501,7 @@ function displayFive(resultSet){
   const NUM_COLS = 500;
   const CELL_SIZE = 2;  
 
-  console.log(resultSet.length);
+ // console.log(resultSet.length);
   
   let palette = ['darkOrange', 'green'];
   let dayColor = assignColorPalette(resultSet, palette);
@@ -438,15 +537,16 @@ function displayFive(resultSet){
   
     }//for
     
-    document.getElementById("childOne").classList.add("flex"); //ass "flex" class to it's container
+    document.getElementById("childOne").classList.add("flex"); //add "flex" class to it's container
     document.getElementById("childOne").style.height = `${yPos+200}px`;
     document.getElementById("parent-wrapper").style.background = "Khaki";
     description.style.color = 'black';
     description.innerHTML = "Occured on a <span style='color:darkOrange'>Monday</span> or <span style='color:green'>Tuesday,</span> and ordered by event_affect_strength";
     // document.getElementById("parent-wrapper").
-
  } //display five
-/******************* SIX****************************/
+/***********************************************/
+
+/******************* SIX ***********************/
   function displaySix(resultSet){
     dataPoints =[];
     let xPos = 0;
@@ -492,6 +592,6 @@ function displayFive(resultSet){
       description.textContent = "Negative mood before and after, organized by weather";
       // document.getElementById("parent-wrapper").
 
-   } //display six
-
+  } //display six
+/***********************************************/
 }); //document ready

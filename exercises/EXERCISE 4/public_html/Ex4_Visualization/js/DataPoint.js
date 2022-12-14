@@ -33,6 +33,16 @@ constructor(id,day,weather,start_mood,after_mood,am_strength,event_affect_streng
     this.container.style.height = size+"px";
     
   }
-  
+
+  updateCircles(size) {
+   
+    // let newSize =  (parseInt(this.container.style.width, 10) + 240) + 'px';
+    //let newSize =  parseInt(this.container.style.width);
+    console.log(size + "%");
+     this.container.style.width =  size+"%";
+     this.container.style.height =  size+"%";
+    // this.container.style.width = 2*size+"px";
+    // this.container.style.height = 2*size+"px";
+  }
 
 }//end class

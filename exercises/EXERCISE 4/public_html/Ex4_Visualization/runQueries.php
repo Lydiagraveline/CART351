@@ -108,6 +108,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
         $outArr[]= $positive_moods;
       }
 
+      // if it is the FOUR query add on events at end of outArr
+      if($_GET["select-query"] =="four"){
+        $outArr[]= $events;
+      }
+
       // if it is the FIFTH query add on days at end of outArr
       if($_GET["select-query"] =="five"){
         $outArr[]= $days;
