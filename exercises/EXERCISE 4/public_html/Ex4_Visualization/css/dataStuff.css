@@ -70,7 +70,7 @@ div.circle {
   /* padding: 50% 0; */
   /* border-radius: 50%; */
   color:white;
-  background: darkblue;
+  /* background: darkblue; */
   /* display:flex; */
   /* border: 30px solid blue; */
 
@@ -82,13 +82,13 @@ div.circle {
 	border-radius: 50%;
 	overflow: hidden; */
 
-  --s:200px;  /*Size of the circle */
+  --s:150px;  /*Size of the circle */
   --p:5px;  /* padding */
 
   height: var(--s);
   width:  var(--s);
   border-radius: 50%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   overflow: hidden;
   /* display: flex; */
 }
@@ -129,7 +129,7 @@ border-radius: 3px;
   }
 
   .point_three:hover{
-    transform: scale(2);
+    transform: scale(1.5);
     /* flex-grow: 4.3; */
     z-index:1;
   }
@@ -166,7 +166,7 @@ border-radius: 3px;
   .point_four:hover{
     /* color: RGB(0, 0, 0, 0.5); */
     /* padding-top: 6px; */
-    transform: scale(2);
+    /* transform: scale(2); */
     /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5) inset; */
   }
 
@@ -185,13 +185,13 @@ border-radius: 3px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5) inset;
   }
 
-  .point_six p, .point_five p, .point_four p {
+  .point_six p, .point_five p{
     display: none;
   }
 
  
 
-  .point_six:hover p, .point_five:hover p, .point_four:hover p{
+  .point_six:hover p, .point_five:hover p{
     display: inline;
   }
 

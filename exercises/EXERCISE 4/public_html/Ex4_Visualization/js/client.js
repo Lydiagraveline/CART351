@@ -472,7 +472,7 @@ function displayFour(resultSet){
     //   xPos =0;
     //   yPos+=CELL_SIZE;
     //    }else{xPos+=CELL_SIZE; }    
-    let size = Number(resultSet[i].event_affect_strength) + Number( 2);
+    let size = resultSet[i].event_affect_strength
     //  console.log(size);
     dataPoints[i].updateCircles(size);
     
@@ -487,7 +487,7 @@ function displayFour(resultSet){
     document.getElementById("childOne").style.height = `800px`;
     document.getElementById("parent-wrapper").style.background = "black";
 
-    description.textContent = "All entries ordered by event name.";
+    description.textContent = "All entries ordered by event name. Scale = event_affect_strength";
     // document.getElementById("parent-wrapper").
 
  } //display four
