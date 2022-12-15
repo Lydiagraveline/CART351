@@ -77,6 +77,8 @@ header{
 }
 
 #div3 {
+  background-image: url("project/images/process.gif");
+  background-size: contain;
   /*  */
   /* height:100%; */
 }
@@ -141,4 +143,9 @@ footer a {
 footer a:hover {
   color: #ffacbf;
   
+}
+
+#div4 p, #div4 a {
+  width: 100%;
+  font-size: 10px;
 }
